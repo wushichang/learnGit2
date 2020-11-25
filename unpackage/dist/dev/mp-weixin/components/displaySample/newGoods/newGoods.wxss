@@ -1,0 +1,67 @@
+
+.a-section {
+  width: 750rpx;
+  height: auto;
+  overflow: hidden;
+  background: #fff;
+  color: #333;
+  margin-bottom: 20rpx;
+}
+
+/* 新品 start */
+.a-new .goods {
+	width: 750rpx;
+	height: auto;
+	overflow: hidden;
+	padding: 0 20rpx 45rpx;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-flow: row wrap;
+	        flex-flow: row wrap;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	        justify-content: space-between;
+}
+.a-new .goods .item {
+  float: left;
+  width: 350rpx;
+  margin-bottom: 20rpx;
+}
+.a-new .goods .img {
+	width: 350rpx;
+	height: 350rpx;
+}
+.a-new .goods .name {
+	text-align: center;
+	display: block;
+	width: 350rpx;
+	height: 35rpx;
+	margin-bottom: 14rpx;
+	overflow: hidden;
+	font-size: 30rpx;
+	color: #333;
+}
+.a-new .goods .price {
+    display: block;
+    text-align: center;
+    line-height: 30rpx;
+    font-size: 30rpx;
+    color: #b4282d;
+}
+
+/* 新品 end */
+.dzprice {
+    color: #b4282d;
+}
+.yjprice {
+    margin-left: 30rpx;
+    text-decoration: line-through;
+    color: #999;
+}
+
+
+
+

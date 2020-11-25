@@ -1,0 +1,38 @@
+
+.box{
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-pack:justify;
+  -webkit-justify-content:space-between;
+          justify-content:space-between;
+  height: 120rpx;
+  padding:0 20rpx;
+}
+.txt {
+  display: inline-block;
+  height: 36rpx;
+  font-size: 15px;
+  line-height: 36rpx;
+  color: #1a1a1a;
+}
+.more {
+    width: 100rpx;
+    height: 50rpx;
+    line-height: 50rpx;
+    color: #1a1a1a;
+    border: 1px solid #1a1a1a;
+    text-align: center;
+    -webkit-border-radius: 30rpx;
+            border-radius: 30rpx;
+    font-size: 26rpx;
+}
+
+

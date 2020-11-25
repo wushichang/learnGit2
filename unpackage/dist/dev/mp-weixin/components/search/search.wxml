@@ -1,0 +1,1 @@
+<view class="search"><navigator class="input" url><view class="iconfont iconsousuo"></view><text class="txt">{{"商品搜索, 共"+goodsCount+"款好物"}}</text></navigator></view>
