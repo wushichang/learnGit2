@@ -156,9 +156,15 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 //
 //
 //
+//
+//
+//
+//
 
 var util = __webpack_require__(/*! ../../util/util.js */ 17);
-var api = __webpack_require__(/*! ../../config/api.js */ 18);var search = function search() {__webpack_require__.e(/*! require.ensure | components/search/search */ "components/search/search").then((function () {return resolve(__webpack_require__(/*! ../../components/search/search.vue */ 21));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var newGoods = function newGoods() {__webpack_require__.e(/*! require.ensure | components/displaySample/newGoods/newGoods */ "components/displaySample/newGoods/newGoods").then((function () {return resolve(__webpack_require__(/*! ../../components/displaySample/newGoods/newGoods.vue */ 28));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+var api = __webpack_require__(/*! ../../config/api.js */ 18);var search = function search() {__webpack_require__.e(/*! require.ensure | components/search/search */ "components/search/search").then((function () {return resolve(__webpack_require__(/*! ../../components/search/search.vue */ 21));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var newGoods = function newGoods() {__webpack_require__.e(/*! require.ensure | components/displaySample/newGoods/newGoods */ "components/displaySample/newGoods/newGoods").then((function () {return resolve(__webpack_require__(/*! ../../components/displaySample/newGoods/newGoods.vue */ 28));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var hotGoods = function hotGoods() {__webpack_require__.e(/*! require.ensure | components/displaySample/hotGoods/hotGoods */ "components/displaySample/hotGoods/hotGoods").then((function () {return resolve(__webpack_require__(/*! ../../components/displaySample/hotGoods/hotGoods.vue */ 47));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var category = function category() {__webpack_require__.e(/*! require.ensure | components/displaySample/category/category */ "components/displaySample/category/category").then((function () {return resolve(__webpack_require__(/*! ../../components/displaySample/category/category.vue */ 55));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+
+
 
 
 
@@ -166,12 +172,16 @@ var api = __webpack_require__(/*! ../../config/api.js */ 18);var search = functi
 {
   components: {
     search: search,
-    newGoods: newGoods },
+    newGoods: newGoods,
+    hotGoods: hotGoods,
+    category: category },
 
   data: function data() {
     return {
       banner: [],
-      newGoodsList: [] };
+      newGoodsList: [],
+      hotGoodsList: [],
+      categoryList: [] };
 
   },
   methods: {
@@ -188,11 +198,27 @@ var api = __webpack_require__(/*! ../../config/api.js */ 18);var search = functi
           _this2.newGoodsList = res.data.newGoodsList;
         }
       });
+    },
+    getHotGoods: function getHotGoods() {var _this3 = this;
+      util.request(api.IndexUrlHotGoods).then(function (res) {
+        if (res.errno === 0) {
+          _this3.hotGoodsList = res.data.hotGoodsList;
+        }
+      });
+    },
+    getCategoryList: function getCategoryList() {var _this4 = this;
+      util.request(api.IndexUrlCategory).then(function (res) {
+        if (res.errno === 0) {
+          _this4.categoryList = res.data.categoryList;
+        }
+      });
     } },
 
   onLoad: function onLoad() {
     this.getIndexUrlBanner();
     this.getNewGoodsList();
+    this.getHotGoods();
+    this.getCategoryList();
   } };exports.default = _default;
 
 /***/ }),

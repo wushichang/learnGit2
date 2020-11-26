@@ -9,9 +9,13 @@
 		        <image :src="item.imageUrl" background-size="cover"></image>
 		      </navigator>
 		    </swiper-item>
-		 </swiper>
-		 <!-- 新品 -->
-		 <new-goods :newGoods='newGoodsList' className="a-new" title="新品首发"></new-goods>
+		</swiper>
+		<!-- 新品 -->
+		<new-goods :newGoods='newGoodsList' title="新品首发"></new-goods>
+		<!-- 人气推荐 -->
+		<hot-goods :hotGoods='hotGoodsList' title="人气推荐"></hot-goods>	
+		 <!-- 普通栏目 -->
+		<category v-for="item in categoryList" :item='item' :key='item.id'></category>
 	</view>
 </template>
 
@@ -21,16 +25,22 @@
 	
 	import search from '../../components/search/search.vue';
 	import newGoods from '../../components/displaySample/newGoods/newGoods.vue';
+	import hotGoods from '../../components/displaySample/hotGoods/hotGoods.vue';
+	import category from '../../components/displaySample/category/category.vue';
 	
 	export default {
 		components:{
 			search,
-			newGoods
+			newGoods,
+			hotGoods,
+			category
 		},
 		data() {
 			return {
 				banner: [],
-				newGoodsList: []
+				newGoodsList: [],
+				hotGoodsList: [],
+				categoryList: []
 			}
 		},
 		methods: {
@@ -47,11 +57,27 @@
 					this.newGoodsList = res.data.newGoodsList
 				  }
 				});
+			},
+			getHotGoods(){
+				util.request(api.IndexUrlHotGoods).then((res)=>{
+				  if (res.errno === 0) {
+					this.hotGoodsList = res.data.hotGoodsList;
+				  }
+				});
+			},
+			getCategoryList(){
+				util.request(api.IndexUrlCategory).then((res)=>{
+				  if (res.errno === 0) {
+					this.categoryList = res.data.categoryList;
+				  }
+				});
 			}
 		},
 		onLoad() {
 			this.getIndexUrlBanner();
 			this.getNewGoodsList();
+			this.getHotGoods();
+			this.getCategoryList();
 		}
 	}
 </script>

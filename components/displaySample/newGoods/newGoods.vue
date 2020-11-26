@@ -1,16 +1,15 @@
 <template>
-	<view class="a-section" :class="className" v-if="newGoods.length > 0">
+	<view class="a-section a-new" v-if="newGoods.length > 0">
 	    <top-nav url='../newGoods/newGoods' :title="title"></top-nav>
 	    <view class="goods">
-	      <view class="item" v-for="(item,index) in newGoods" :key="item.id">
-	        <navigator :url="'../goods/goods?id='+item.id">
-	          <image class="img" :src="item.listPicUrl" background-size="cover"></image>
-	          <text class="name">{{item.name || ''}}</text>
-	          <view class="tx price">
-	           <text class='pri dzprice'>￥{{item.retailPrice || '0.00'}}</text>
-	           <text class='pri yjprice' v-if="item.marketPrice">￥{{item.marketPrice}}</text>
-	          </view>
-	          <!-- <text class="price">￥{{item.retailPrice}}</text> -->
+			<view class="item" v-for="(item,index) in newGoods" :key="item.id">
+			<navigator :url="'../goods/goods?id='+item.id">
+			<image class="img" :src="item.listPicUrl" background-size="cover"></image>
+			<text class="name">{{item.name || ''}}</text>
+			<view class="tx price">
+				<text class='pri dzprice'>￥{{item.retailPrice || '0.00'}}</text>
+				<text class='pri yjprice' v-if="item.marketPrice">￥{{item.marketPrice}}</text>
+			</view>
 	        </navigator>
 	      </view>
 	    </view>
@@ -21,7 +20,7 @@
 	import topNav from '../topNav/topNav.vue';
 	
 	export default {
-		props: ['newGoods','title','className'],
+		props: ['newGoods','title'],
 		components: {
 			topNav
 		},
@@ -42,8 +41,6 @@
 	  color: #333;
 	  margin-bottom: 20rpx;
 	}
-	
-	/* 新品 start */
 	
 	.a-new .goods {
 		width: 750rpx;
@@ -74,6 +71,9 @@
 		margin-bottom: 14rpx;
 		overflow: hidden;
 		font-size: 30rpx;
+		/* #ifdef APP-PLUS */
+		line-height: 30rpx;
+		/* #endif */
 		color: #333;
 	}
 	
@@ -84,9 +84,7 @@
 	    font-size: 30rpx;
 	    color: #b4282d;
 	}
-	
-	/* 新品 end */
-	
+
 	.dzprice {
 	    color: #b4282d;
 	}
@@ -96,7 +94,5 @@
 	    text-decoration: line-through;
 	    color: #999;
 	}
-	
-	
 	
 </style>

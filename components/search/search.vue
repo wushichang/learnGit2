@@ -1,6 +1,6 @@
 <template>
 	<view class="search">
-	    <navigator url="" class="input">
+	    <navigator url="../searchForGoods/searchForGoods" class="input">
 	      <view class="iconfont iconsousuo"></view>
 	      <text class="txt">商品搜索, 共{{goodsCount}}款好物</text>
 	    </navigator>

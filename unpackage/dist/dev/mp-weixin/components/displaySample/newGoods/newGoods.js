@@ -135,9 +135,8 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 
 
-
 {
-  props: ['newGoods', 'title', 'className'],
+  props: ['newGoods', 'title'],
   components: {
     topNav: topNav },
 

@@ -7,8 +7,6 @@
   color: #333;
   margin-bottom: 20rpx;
 }
-
-/* 新品 start */
 .a-new .goods {
 	width: 750rpx;
 	height: auto;
@@ -42,6 +40,9 @@
 	margin-bottom: 14rpx;
 	overflow: hidden;
 	font-size: 30rpx;
+
+
+
 	color: #333;
 }
 .a-new .goods .price {
@@ -51,8 +52,6 @@
     font-size: 30rpx;
     color: #b4282d;
 }
-
-/* 新品 end */
 .dzprice {
     color: #b4282d;
 }
@@ -61,7 +60,5 @@
     text-decoration: line-through;
     color: #999;
 }
-
-
 
 
