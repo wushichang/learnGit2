@@ -1,12 +1,12 @@
 {
   "pages": [
-    "pages/index/index",
-    "pages/searchForGoods/searchForGoods"
+    "pages/searchForGoods/searchForGoods",
+    "pages/index/index"
   ],
   "subPackages": [],
   "window": {
     "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "",
+    "navigationBarTitleText": "XX商城",
     "navigationBarBackgroundColor": "#fff",
     "backgroundColor": "#fff"
   },
