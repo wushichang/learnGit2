@@ -3,16 +3,16 @@
 		<view class="search-header">
 			<view class="input-box">
 				<view class="iconfont iconsousuo"></view>
-				<input name="input" class="searchValue" focus="true" confirm-type="search" v-model="keyword" :placeholder="defaultKeyword.keyword"
+				<!-- 查询默认提示信息的时候，后台返回null，placeholder这个地方取值就会报错，还不好找问题 -->
+				<input name="input" class="searchValue" focus="true" confirm-type="search" v-model="keyword" :placeholder="defaultKeyword.keyword || ''"
 				 @focus="inputFocus" @confirm="onKeywordConfirm" />
 				<view v-show="keyword" class="iconfont iconicon-test del" @click="clearKeyword"></view>
 			</view>
 			<view class="right" @click="closeSearch">取消</view>
 		</view>
-
 		<!-- 历史记录 -->
-		<view class="no-search" v-if="!searchStatus">
-			<view class="serach-keywords search-history" v-if="!keyword  && historyKeyword.length">
+		<view class="no-search" v-show="!searchStatus">
+			<view class="serach-keywords search-history" v-if=" historyKeyword.length && !keyword">
 				<view class="h">
 					<text class="title">历史记录</text>
 					<view class="iconfont icondelete" @click="clearHistory"></view>
@@ -40,24 +40,27 @@
 				<view class="item" hover-class="navigator-hover" v-for="item in helpKeyword" @click="onKeywordTap(item.keyword)"
 				 :key="item.keyword">{{item}}</view>
 			</view>
-
-
 		</view>
 
-		<!-- 查询结果 -->
-		<view class="search-result" v-if="searchStatus && goodsList.length">
-			<product-display :isSearchPage="true"></product-display>
+		<!-- 查询结果  小程序用的wx-if ,感觉还是的改一下不用 v-if  *之前没有用Boolean包着，竟然出不来，我尼玛-->
+		<view class="search-result" v-show="showFlag">
+			<product-display :isSearchPage="true" :filterCategory='filterCategory' :goodsList='goodsList' @getGoodsList="getGoodsListParameters">
+			</product-display>
 		</view>
-
+		<!-- 不知道反向的表达方式，先凑合用着 -->
+		<view class="search-result-empty" v-show="!showFlag">
+		    <image class="icon" src="http://shop.beastiot.com/haoyaoshopvf/icon/noSearchResult-7572a94f32.png"></image>
+		    <text class="text">您寻找的商品还未上架</text>
+		</view>
 	</scroll-view>
 </template>
 
 <script>
 	const util = require('../../util/util');
 	const api = require('../../config/api.js');
-	
+
 	import productDisplay from '../../components/productDisplay/productDisplay.vue';
-	
+
 	export default {
 		components: {
 			productDisplay
@@ -73,12 +76,18 @@
 				goodsList: [], //商品列表
 				page: 1, //页码
 				size: 20, //每页行数
-				currentSortType: 'id', //排序
+				currentSortType: 'default', //排序
 				currentSortOrder: 'desc', //升序OR降序
 				categoryId: 0, //类目编号
 				categoryFilter: false, //条件查询表示
-				filterCategory: [], //条件查询内容
-				
+				filterCategory: [] //条件查询内容
+
+			}
+		},
+		computed:{
+			//是否显示没有商品图标
+			showFlag(){
+				return Boolean(this.searchStatus && this.goodsList.length);
 			}
 		},
 		methods: {
@@ -97,7 +106,8 @@
 				util.request(api.SearchIndex).then((res) => {
 					if (res.errno === 0) {
 						this.historyKeyword = res.data.historyKeywordList;
-						this.defaultKeyword = res.data.defaultKeyword;
+						//万万没想到，后台返回的defaultKeyword是空对象
+						this.defaultKeyword = res.data.defaultKeyword || {};
 						this.hotKeyword = res.data.hotKeywordList;
 					}
 				});
@@ -110,8 +120,11 @@
 					});
 			},
 			onKeywordTap(key) {
-				console.log('key', key);
-				
+				this.keyword = key;
+				this.page = 1;
+				this.categoryId = 0;
+				this.goodsList = [] ;
+				this.getGoodsList();
 			},
 			getHelpKeyword() {
 				if (!this.keyword) return;
@@ -143,7 +156,7 @@
 				};
 				util.request(api.GoodsList, parameters).then((res) => {
 					if (res.errno === 0) {
-						console.log('获取商品信息', res);
+						// console.log('获取商品信息', res);
 						this.searchStatus = true;
 						this.categoryFilter = false;
 						this.goodsList = res.data.goodsList;
@@ -153,6 +166,20 @@
 					//重新获取关键词
 					this.getSearchKeyword();
 				});
+			},
+			getGoodsListParameters(selectParameters) {
+				this.categoryFilter = selectParameters.categoryFilter;
+				if (selectParameters.categoryId) {
+					//筛选
+					this.filterCategory = selectParameters.filterCategory;
+					this.categoryId = selectParameters.categoryId;
+					this.page = 1;
+					this.goodsList = [];
+				} else {
+					this.currentSortType = selectParameters.currentSortType;
+					this.currentSortOrder = selectParameters.currentSortOrder;
+				}
+				this.getGoodsList();
 			}
 		},
 		watch: {
@@ -170,6 +197,16 @@
 </script>
 
 <style>
+	page {
+		min-height: 100%;
+		background-color: #f4f4f4;
+	}
+
+	.container {
+		min-height: 100%;
+		background-color: #f4f4f4;
+	}
+
 	.search-header {
 		position: fixed;
 		top: 0;
@@ -300,5 +337,27 @@
 		font-size: 24rpx;
 		color: #333;
 		border-bottom: 1px solid #f4f4f4;
+	}
+	
+	.search-result-empty{
+	    width: 100%;
+	    height: 100%;
+	    padding-top: 300rpx;
+	}
+	
+	.search-result-empty .icon{
+	    margin: 0 auto;
+	    display: block;
+	    width: 240rpx;
+	    height: 240rpx;
+	}
+	
+	.search-result-empty .text{
+	    display: block;
+	    width: 100%;
+	    height: 40rpx;
+	    font-size: 28rpx;
+	    text-align: center;
+	    color: #999;
 	}
 </style>

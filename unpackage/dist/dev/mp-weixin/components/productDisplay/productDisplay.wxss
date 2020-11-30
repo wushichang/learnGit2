@@ -1,83 +1,142 @@
 
 .searchSort {
-    position: fixed;
-    top: 91rpx;
-    background: #fff;
-    width: 100%;
-    height: 78rpx;
+	position: fixed;
+	top: 91rpx;
+	background: #fff;
+	width: 100%;
+	height: 78rpx;
+	/* 此处稍微设置一下显示层级，主要是给app端用 */
+	z-index: 1;
 }
-.sort{
+.sort {
 	position: relative;
 	background: #fff;
 	width: 100%;
 	height: 78rpx;
 }
 .sort-box {
-    background: #fff;
-    width: 100%;
-    height: 78rpx;
-    overflow: hidden;
-    padding: 0 30rpx;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: flex;
-    border-bottom: 1px solid #d9d9d9;
+	background: #fff;
+	width: 100%;
+	height: 78rpx;
+	overflow: hidden;
+	padding: 0 30rpx;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	border-bottom: 1px solid #d9d9d9;
 }
 .sort-box .item {
-    height: 78rpx;
-    line-height: 78rpx;
-    text-align: center;
-    -webkit-box-flex: 1;
-    -webkit-flex: 1;
-            flex: 1;
-    color: #333;
-    font-size: 30rpx;
+	height: 78rpx;
+	line-height: 78rpx;
+	text-align: center;
+	-webkit-box-flex: 1;
+	-webkit-flex: 1;
+	        flex: 1;
+	color: #333;
+	font-size: 30rpx;
 }
-.sort-box .item .txt{
-    display: block;
-    width: 100%;
-    height: 100%;
-    color: #333;
+.sort-box .item .txt {
+	display: block;
+	width: 100%;
+	height: 100%;
+	color: #333;
 }
-.sort-box .item.active .txt{
-    color: #b4282d;
+.sort-box .item.active .txt {
+	color: #b4282d;
 }
-.sort-box .item.by-price{
-    background: url(http://shop.beastiot.com/haoyaoshopvf/icon/no-3127092a69.png) 155rpx center no-repeat;
-    background-size: 15rpx 21rpx;
+.sort-box .item.by-price {
+	background: url(http://shop.beastiot.com/haoyaoshopvf/icon/no-3127092a69.png) 155rpx center no-repeat;
+	background-size: 15rpx 21rpx;
 }
-.sort-box .item.by-price.active.asc{
-    background: url(http://shop.beastiot.com/haoyaoshopvf/icon/up-636b92c0a5.png) 155rpx center no-repeat;
-    background-size: 15rpx 21rpx;
+.sort-box .item.by-price.active.asc {
+	background: url(http://shop.beastiot.com/haoyaoshopvf/icon/up-636b92c0a5.png) 155rpx center no-repeat;
+	background-size: 15rpx 21rpx;
+	font-size: 40rpx;
 }
-.sort-box .item.by-price.active.desc{
-    background: url(http://shop.beastiot.com/haoyaoshopvf/icon/down-95e035f3e5.png) 155rpx center no-repeat;
-    background-size: 15rpx 21rpx;
+.sort-box .item.by-price.active.desc {
+	background: url(http://shop.beastiot.com/haoyaoshopvf/icon/down-95e035f3e5.png) 155rpx center no-repeat;
+	background-size: 15rpx 21rpx;
+	font-size: 50rpx;
 }
 .sort-box-category {
-    background: #fff;
-    width: 100%;
-    height: auto;
-    overflow: hidden;
-    padding: 40rpx 40rpx 0 0;
-    border-bottom: 1px solid #d9d9d9;
+	background: #fff;
+	width: 100%;
+	height: auto;
+	overflow: hidden;
+	padding: 40rpx 40rpx 0 0;
+	border-bottom: 1px solid #d9d9d9;
 }
 .sort-box-category .item {
-    height: 54rpx;
-    line-height: 54rpx;
-    text-align: center;
-    float: left;
-    padding: 0 16rpx;
-    margin: 0 0 40rpx 40rpx;
-    border: 1px solid #666;
-    color: #333;
-    font-size: 24rpx;
+	height: 54rpx;
+	line-height: 54rpx;
+	text-align: center;
+	float: left;
+	padding: 0 16rpx;
+	margin: 0 0 40rpx 40rpx;
+	border: 1px solid #666;
+	color: #333;
+	font-size: 24rpx;
 }
-.sort-box-category .item.active{
-    color: #b4282d;
-    border: 1px solid #b4282d;
+.sort-box-category .item.active {
+	color: #b4282d;
+	border: 1px solid #b4282d;
+}
+.cate-item-search {
+	margin-top: 175rpx;
+	height: auto;
+	overflow: hidden;
 }
 
+/* 此处注意，需要作区分 */
+.cate-item .b {
+    width: 750rpx;
+    padding: 0 6.25rpx;
+    height: auto;
+    overflow: hidden;
+}
+.cate-item .b .item {
+    float: left;
+    background: #fff;
+    width: 365rpx;
+    margin-bottom: 6.25rpx;
+    padding-bottom: 33.333rpx;
+    height: auto;
+    overflow: hidden;
+    text-align: center;
+}
+.cate-item .b .item-b{
+  margin-left: 6.25rpx;
+}
+.cate-item .item .img {
+    width: 302rpx;
+    height: 302rpx;
+}
+.cate-item .item .name {
+    display: block;
+    width: 365.625rpx;
+    height: 35rpx;
+    margin: 11.5rpx 0 22rpx 0;
+    text-align: center;
+    overflow: hidden;
+    padding: 0 20rpx;
+    font-size: 30rpx;
+    color: #333;
+}
+.cate-item .item .price {
+    display: block;
+    width: 365.625rpx;
+    height: 30rpx;
+    text-align: center;
+    font-size: 30rpx;
+    color: #b4282d;
+}
+.dzprice {
+    color: #b4282d;
+}
+.yjprice {
+    margin-left: 20rpx;
+    text-decoration: line-through;
+}
 
 
 

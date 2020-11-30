@@ -32,10 +32,6 @@
 	  font-family: PingFangSC-Light,helvetica,'Heiti SC';
 	}
 	
-	
-	
-	
-	
 	/* 阿里图标 start */
 	@font-face {
 		font-family: "iconfont";
