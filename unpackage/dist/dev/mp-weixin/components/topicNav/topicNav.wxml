@@ -1,0 +1,1 @@
+<view class="btns"><view data-event-opts="{{[['tap',[['scrollPage',['pre']]]]]}}" class="{{['prev',page<=1?'disabled':'']}}" bindtap="__e">上一页</view><view data-event-opts="{{[['tap',[['scrollPage',['next']]]]]}}" class="{{['next',count/size<page+1?'disabled':'']}}" bindtap="__e">下一页</view></view>

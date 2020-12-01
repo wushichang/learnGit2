@@ -1,0 +1,23 @@
+
+.btns {
+	width: 750rpx;
+	height: 108rpx;
+	background: #fff;
+	margin-bottom: 20rpx;
+}
+.btns view {
+	height: 108rpx;
+	line-height: 108rpx;
+	width: 50%;
+	float: left;
+	font-size: 29rpx;
+	color: #333;
+	text-align: center;
+}
+.btns .prev {
+	border-right: 1px solid #D9D9D9;
+}
+.btns .disabled {
+	color: #ccc;
+}
+

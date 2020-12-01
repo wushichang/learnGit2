@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "product-post": "/components/productPost/productPost",
+    "product-display": "/components/productDisplay/productDisplay"
+  }
+}

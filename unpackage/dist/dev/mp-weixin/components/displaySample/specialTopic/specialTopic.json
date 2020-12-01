@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "top-nav": "/components/displaySample/topNav/topNav"
+  },
+  "component": true
+}

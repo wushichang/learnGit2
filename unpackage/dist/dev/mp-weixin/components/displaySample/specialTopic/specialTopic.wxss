@@ -1,0 +1,70 @@
+
+.a-section {
+    width: 750rpx;
+    height: auto;
+    overflow: hidden;
+    background: #fff;
+    color: #333;
+    margin-bottom: 20rpx;
+}
+.fx-selected {
+    height: 532rpx;
+    width: 100%;
+}
+.fx-selected .selBox {
+    width: 710rpx;
+    margin: 0 auto;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-flow: row nowrap;
+            flex-flow: row nowrap;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+            justify-content: space-between;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+            align-items: center;
+}
+.fx-selected .selBox .li {
+    height: 392rpx;
+    width: 350rpx;
+}
+.fx-selected .left {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background: #cccccc;
+}
+.fx-selected .left .picl {
+    height: 392rpx;
+    width: 350rpx;
+}
+.fx-selected .right {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+            justify-content: space-between;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+            align-items: center;
+}
+.fx-selected .right .tb {
+    height: 191rpx;
+    width: 350rpx;
+    overflow: hidden;
+    background: #cccccc;
+}
+.fx-selected .right .tb .picr {
+    height: 191rpx;
+    width: 350rpx;
+}
+

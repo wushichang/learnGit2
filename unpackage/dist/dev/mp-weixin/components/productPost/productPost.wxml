@@ -1,0 +1,1 @@
+<view class="brand-info"><view class="name"><image class="img" src="{{bannerInfo.imgUrl}}" background-size="cover"></image><view class="info-box"><view class="info"><text class="txt">{{bannerInfo.name}}</text><text class="line"></text></view></view></view></view>
