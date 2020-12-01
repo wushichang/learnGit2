@@ -81,7 +81,6 @@
 				categoryId: 0, //类目编号
 				categoryFilter: false, //条件查询表示
 				filterCategory: [] //条件查询内容
-
 			}
 		},
 		computed:{

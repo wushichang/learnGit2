@@ -32,6 +32,31 @@
 	  font-family: PingFangSC-Light,helvetica,'Heiti SC';
 	}
 	
+	/* 没有商品信息 */
+	.empty-view{
+	  margin-top: 50%;
+	  height: 100%;
+	  width: 100%;
+	  display: flex;
+	  flex-direction: column;
+	  align-items: center;
+	  justify-content: center;
+	}
+	
+	.empty-view .icon{
+	  height: 120rpx;
+	  width: 120rpx;
+	  margin-bottom: 10rpx;
+	}
+	
+	.empty-view .text{
+	  width: auto;
+	  font-size: 28rpx;
+	  line-height: 35rpx;
+	  color: #999;
+	}
+
+	
 	/* 阿里图标 start */
 	@font-face {
 		font-family: "iconfont";

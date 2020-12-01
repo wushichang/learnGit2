@@ -4,6 +4,7 @@
     "search": "/components/search/search",
     "new-goods": "/components/displaySample/newGoods/newGoods",
     "hot-goods": "/components/displaySample/hotGoods/hotGoods",
-    "category": "/components/displaySample/category/category"
+    "category": "/components/displaySample/category/category",
+    "special-topic": "/components/displaySample/specialTopic/specialTopic"
   }
 }

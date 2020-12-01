@@ -1,7 +1,10 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/searchForGoods/searchForGoods"
+    "pages/searchForGoods/searchForGoods",
+    "pages/topic/topic",
+    "pages/newGoods/newGoods",
+    "pages/hotGoods/hotGoods"
   ],
   "subPackages": [],
   "window": {
@@ -10,5 +13,6 @@
     "navigationBarBackgroundColor": "#fff",
     "backgroundColor": "#fff"
   },
-  "usingComponents": {}
+  "usingComponents": {},
+  "sitemapLocation": "sitemap79.json"
 }

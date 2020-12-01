@@ -13,7 +13,8 @@
 					<text class="txt">分类</text>
 				</view>
 			</view>
-			<view class="sort-box-category" v-if="categoryFilter">
+			<view class="sort-box-category" v-show="categoryFilter">
+				<!-- 此处点击配件后，后台返回的数据筛选条件，丢失了‘配件’一项 -->
 				<view :class="['item', item.checked ? 'active' : '']" v-for="(item,index) in filterCategory" :key="item.id" @click="selectCategory(index)">{{item.name}}</view>
 			</view>
 		</view>
@@ -133,6 +134,8 @@
 		background: #fff;
 		width: 100%;
 		height: 78rpx;
+		/* 此处稍微设置一下显示层级，主要是给app端用 */
+		z-index: 1;
 	}
 
 	.sort-box {

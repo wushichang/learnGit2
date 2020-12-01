@@ -13,6 +13,8 @@
 	background: #fff;
 	width: 100%;
 	height: 78rpx;
+	/* 此处稍微设置一下显示层级，主要是给app端用 */
+	z-index: 1;
 }
 .sort-box {
 	background: #fff;
