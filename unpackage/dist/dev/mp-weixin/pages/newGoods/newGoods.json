@@ -3,6 +3,7 @@
   "enablePullDownRefresh": false,
   "usingComponents": {
     "product-post": "/components/productPost/productPost",
-    "product-display": "/components/productDisplay/productDisplay"
+    "product-display": "/components/productDisplay/productDisplay",
+    "no-goods": "/components/noGoods/noGoods"
   }
 }

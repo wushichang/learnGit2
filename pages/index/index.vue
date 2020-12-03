@@ -11,7 +11,7 @@
 			</swiper-item>
 		</swiper>
 		<!-- 专题精选 -->
-		<specialTopic title='专题精选' :topicList="topicList"></specialTopic>
+		<specialTopic :topicList="topicList" title="专题精选"></specialTopic>
 		<!-- 新品 -->
 		<new-goods :newGoods='newGoodsList' title="新品首发"></new-goods>
 		<!-- 人气推荐 -->

@@ -1,5 +1,5 @@
 <template>
-	<view class='a-section fx-selected'>
+	<view class='a-section fx-selected' v-if="topicList.length">
 	    <top-nav url="../topic/topic" :title="title"></top-nav>
 	    <view class='b'>
 	       <view class='selBox cont'>
@@ -30,7 +30,7 @@
 	import topNav from '../topNav/topNav.vue';
 	
 	export default{
-		props: ['title','topicList'],
+		props: {title: String,topicList:Array},
 		components: {
 			topNav
 		},

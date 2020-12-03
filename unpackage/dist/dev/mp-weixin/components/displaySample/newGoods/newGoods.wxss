@@ -1,11 +1,11 @@
 
 .a-section {
-  width: 750rpx;
-  height: auto;
-  overflow: hidden;
-  background: #fff;
-  color: #333;
-  margin-bottom: 20rpx;
+	width: 750rpx;
+	height: auto;
+	overflow: hidden;
+	background: #fff;
+	color: #333;
+	margin-bottom: 20rpx;
 }
 .a-new .goods {
 	width: 750rpx;
@@ -24,9 +24,9 @@
 	        justify-content: space-between;
 }
 .a-new .goods .item {
-  float: left;
-  width: 350rpx;
-  margin-bottom: 20rpx;
+	float: left;
+	width: 350rpx;
+	margin-bottom: 20rpx;
 }
 .a-new .goods .img {
 	width: 350rpx;
@@ -46,19 +46,18 @@
 	color: #333;
 }
 .a-new .goods .price {
-    display: block;
-    text-align: center;
-    line-height: 30rpx;
-    font-size: 30rpx;
-    color: #b4282d;
+	display: block;
+	text-align: center;
+	line-height: 30rpx;
+	font-size: 30rpx;
+	color: #b4282d;
 }
 .dzprice {
-    color: #b4282d;
+	color: #b4282d;
 }
 .yjprice {
-    margin-left: 30rpx;
-    text-decoration: line-through;
-    color: #999;
+	margin-left: 30rpx;
+	text-decoration: line-through;
+	color: #999;
 }
-
 

@@ -1,0 +1,1 @@
+<view hidden="{{!(showFlag)}}" class="empty-view"><image class="icon" src="../../static/images/allorder.png"></image><text class="text">无商品数据</text></view>

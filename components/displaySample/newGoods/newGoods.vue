@@ -1,32 +1,32 @@
 <template>
 	<view class="a-section a-new" v-if="newGoods.length > 0">
-	    <top-nav url='../newGoods/newGoods' :title="title"></top-nav>
-	    <view class="goods">
+		<top-nav url='../newGoods/newGoods' :title="title"></top-nav>
+		<view class="goods">
 			<view class="item" v-for="(item,index) in newGoods" :key="item.id">
-			<navigator :url="'../goods/goods?id='+item.id">
-			<image class="img" :src="item.listPicUrl" background-size="cover"></image>
-			<text class="name">{{item.name || ''}}</text>
-			<view class="tx price">
-				<text class='pri dzprice'>￥{{item.retailPrice || '0.00'}}</text>
-				<text class='pri yjprice' v-if="item.marketPrice">￥{{item.marketPrice}}</text>
+				<navigator :url="'../goods/goods?id='+item.id">
+					<image class="img" :src="item.listPicUrl" background-size="cover"></image>
+					<text class="name">{{item.name || ''}}</text>
+					<view class="tx price">
+						<text class='pri dzprice'>￥{{item.retailPrice || '0.00'}}</text>
+						<text class='pri yjprice' v-if="item.marketPrice">￥{{item.marketPrice}}</text>
+					</view>
+				</navigator>
 			</view>
-	        </navigator>
-	      </view>
-	    </view>
-	  </view>
+		</view>
+	</view>
 </template>
 
 <script>
 	import topNav from '../topNav/topNav.vue';
-	
+
 	export default {
-		props: ['newGoods','title'],
+		props: ['newGoods', 'title'],
 		components: {
 			topNav
 		},
 		data() {
 			return {
-				
+
 			};
 		}
 	}
@@ -34,14 +34,14 @@
 
 <style>
 	.a-section {
-	  width: 750rpx;
-	  height: auto;
-	  overflow: hidden;
-	  background: #fff;
-	  color: #333;
-	  margin-bottom: 20rpx;
+		width: 750rpx;
+		height: auto;
+		overflow: hidden;
+		background: #fff;
+		color: #333;
+		margin-bottom: 20rpx;
 	}
-	
+
 	.a-new .goods {
 		width: 750rpx;
 		height: auto;
@@ -51,18 +51,18 @@
 		flex-flow: row wrap;
 		justify-content: space-between;
 	}
-	
+
 	.a-new .goods .item {
-	  float: left;
-	  width: 350rpx;
-	  margin-bottom: 20rpx;
+		float: left;
+		width: 350rpx;
+		margin-bottom: 20rpx;
 	}
-	
+
 	.a-new .goods .img {
 		width: 350rpx;
 		height: 350rpx;
 	}
-	
+
 	.a-new .goods .name {
 		text-align: center;
 		display: block;
@@ -76,23 +76,22 @@
 		/* #endif */
 		color: #333;
 	}
-	
+
 	.a-new .goods .price {
-	    display: block;
-	    text-align: center;
-	    line-height: 30rpx;
-	    font-size: 30rpx;
-	    color: #b4282d;
+		display: block;
+		text-align: center;
+		line-height: 30rpx;
+		font-size: 30rpx;
+		color: #b4282d;
 	}
 
 	.dzprice {
-	    color: #b4282d;
+		color: #b4282d;
 	}
-	
+
 	.yjprice {
-	    margin-left: 30rpx;
-	    text-decoration: line-through;
-	    color: #999;
+		margin-left: 30rpx;
+		text-decoration: line-through;
+		color: #999;
 	}
-	
 </style>

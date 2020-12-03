@@ -2,17 +2,14 @@
 	<view class="container">
 		<product-post :bannerInfo='bannerInfo'></product-post>
 		<product-display :filterCategory='filterCategory'  :categoryFilter='categoryFilter' :goodsList='goodsList' @getGoodsList='getGoodsListParameters'></product-display>
-		<!-- 小程序人气推荐页面没有看到这个，暂时就不写成组件了 -->
-		<view class="empty-view" v-show="goodsList.length <= 0">
-		  <image class="icon" src="../../static/images/allorder.png"></image>
-		  <text class="text">无商品数据</text>
-		</view>
+		<no-goods :showFlag="goodsList<1"></no-goods>
 	</view>
 </template>
 
 <script>
 	import productPost from '../../components/productPost/productPost.vue';
 	import productDisplay from '../../components/productDisplay/productDisplay.vue';
+	import noGoods from '../../components/noGoods/noGoods.vue';
 
 	const util = require('../../util/util');
 	const api = require('../../config/api.js');
@@ -20,7 +17,8 @@
 	export default {
 		components: {
 			productPost,
-			productDisplay
+			productDisplay,
+			noGoods
 		},
 		data() {
 			return {

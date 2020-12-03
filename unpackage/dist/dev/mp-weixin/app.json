@@ -4,7 +4,9 @@
     "pages/searchForGoods/searchForGoods",
     "pages/topic/topic",
     "pages/newGoods/newGoods",
-    "pages/hotGoods/hotGoods"
+    "pages/hotGoods/hotGoods",
+    "pages/category/category",
+    "components/cateGoryDetail/top/top"
   ],
   "subPackages": [],
   "window": {
@@ -13,6 +15,5 @@
     "navigationBarBackgroundColor": "#fff",
     "backgroundColor": "#fff"
   },
-  "usingComponents": {},
-  "sitemapLocation": "sitemap79.json"
+  "usingComponents": {}
 }

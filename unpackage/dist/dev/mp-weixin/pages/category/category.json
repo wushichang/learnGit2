@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "top": "/components/cateGoryDetail/top/top",
+    "category-content": "/components/cateGoryDetail/categoryContent/categoryContent",
+    "no-goods": "/components/noGoods/noGoods"
+  }
+}
