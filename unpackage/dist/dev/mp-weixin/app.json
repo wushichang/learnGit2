@@ -1,12 +1,15 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/catalog/catalog",
     "pages/searchForGoods/searchForGoods",
     "pages/topic/topic",
     "pages/newGoods/newGoods",
     "pages/hotGoods/hotGoods",
     "pages/category/category",
-    "components/cateGoryDetail/top/top"
+    "components/cateGoryDetail/top/top",
+    "pages/goods/goods",
+    "pages/topic/topicDetail/topicDetail"
   ],
   "subPackages": [],
   "window": {

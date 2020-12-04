@@ -2,7 +2,8 @@
 	<view class="container">
 		<product-post :bannerInfo='bannerInfo'></product-post>
 		<product-display :filterCategory='filterCategory'  :categoryFilter='categoryFilter' :goodsList='goodsList' @getGoodsList='getGoodsListParameters'></product-display>
-		<no-goods :showFlag="goodsList<1"></no-goods>
+		<!--  -->
+		<no-goods :showFlag="Boolean(goodsList.length<1)"></no-goods>
 	</view>
 </template>
 

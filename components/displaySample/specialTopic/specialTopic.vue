@@ -1,5 +1,6 @@
 <template>
 	<view class='a-section fx-selected' v-if="topicList.length">
+		<!-- :isSwitchTab="true"  之后记得添加这个属性-->
 	    <top-nav url="../topic/topic" :title="title"></top-nav>
 	    <view class='b'>
 	       <view class='selBox cont'>

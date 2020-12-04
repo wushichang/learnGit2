@@ -1,11 +1,20 @@
 {
     "pages" : [
         //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
-        {
-            "path" : "pages/index/index",
-            "style" : {
-                "navigationBarTitleText" : "首页"
+       {
+           "path" : "pages/index/index",
+           "style" : {
+               "navigationBarTitleText" : "首页"
+           }
+       },
+	   {
+            "path" : "pages/catalog/catalog",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
             }
+            
         },
         {
             "path" : "pages/searchForGoods/searchForGoods",
@@ -48,6 +57,24 @@
 				// 干脆搞大点，除了问题再说
 				"onReachBottomDistance": 500
 			}
+        },
+        {
+            "path" : "pages/goods/goods",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/topic/topicDetail/topicDetail",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
         }
     ],
     "globalStyle" : {

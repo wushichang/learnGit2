@@ -1,13 +1,13 @@
 <template>
 	<view class="box">
 	    <label class="txt" :title="title">{{title}}</label>
-	     <navigator class='more' :url="url">更多</navigator> 
+	     <navigator class='more' :url="url" :open-type="isSwitchTab?'switchTab':'navigate'">更多</navigator> 
 	</view>
 </template>
 
 <script>
 	export default{
-		props:['url','title'],
+		props:['url','title','isSwitchTab'],
 		data(){
 			return {
 				

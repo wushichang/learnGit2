@@ -1,0 +1,1 @@
+<scroll-view class="nav" scroll-y="true"><block wx:for="{{navList}}" wx:for-item="item" wx:for-index="index" wx:key="id"><view class="{{['item',currentCategory.id==item.id?'active':'']}}" id="{{item.id}}" data-event-opts="{{[['tap',[['switchCate',['$event']]]]]}}" bindtap="__e">{{''+item.name+''}}</view></block></scroll-view>

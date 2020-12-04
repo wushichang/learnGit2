@@ -1,5 +1,5 @@
 <template>
-	<view class="empty-view" v-show="showFlag">
+	<view class="empty-view" v-if="showFlag">
 	  <image class="icon" src="../../static/images/allorder.png"></image>
 	  <text class="text">无商品数据</text>
 	</view>
@@ -7,7 +7,12 @@
 
 <script>
 	export default{
-		props: {showFlag:false},
+		props: {
+			showFlag: {
+				type: Boolean,
+				default: false
+			}
+		},
 		data(){
 			return{
 				

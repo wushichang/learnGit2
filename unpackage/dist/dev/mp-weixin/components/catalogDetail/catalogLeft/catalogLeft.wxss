@@ -1,0 +1,22 @@
+
+.nav {
+	width: 162rpx;
+	height: 100%;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+}
+.nav .item {
+	text-align: center;
+	line-height: 90rpx;
+	width: 162rpx;
+	height: 90rpx;
+	color: #333;
+	font-size: 28rpx;
+	border-left: 6rpx solid #fff;
+}
+.nav .item.active {
+	color: #ab2b2b;
+	font-size: 36rpx;
+	border-left: 6rpx solid #ab2b2b;
+}
+
