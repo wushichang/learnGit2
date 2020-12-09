@@ -1,15 +1,18 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/shoppingCart/shoppingCart",
     "pages/catalog/catalog",
     "pages/searchForGoods/searchForGoods",
     "pages/topic/topic",
+    "pages/topicDetail/topicDetail",
     "pages/newGoods/newGoods",
     "pages/hotGoods/hotGoods",
     "pages/category/category",
     "components/cateGoryDetail/top/top",
     "pages/goods/goods",
-    "pages/topic/topicDetail/topicDetail"
+    "pages/userCenter/index/index",
+    "pages/commentPost/commentPost"
   ],
   "subPackages": [],
   "window": {
@@ -17,6 +20,44 @@
     "navigationBarTitleText": "XX商城",
     "navigationBarBackgroundColor": "#fff",
     "backgroundColor": "#fff"
+  },
+  "tabBar": {
+    "backgroundColor": "#fafafa",
+    "borderStyle": "white",
+    "selectedColor": "#b4282d",
+    "color": "#666",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "static/images/ic_menu_choice_nor.png",
+        "selectedIconPath": "static/images/ic_menu_choice_pressed.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/catalog/catalog",
+        "iconPath": "static/images/ic_menu_sort_nor.png",
+        "selectedIconPath": "static/images/ic_menu_sort_pressed.png",
+        "text": "分类"
+      },
+      {
+        "pagePath": "pages/topic/topic",
+        "iconPath": "static/images/ic_menu_topic_nor.png",
+        "selectedIconPath": "static/images/ic_menu_topic_pressed.png",
+        "text": "专题"
+      },
+      {
+        "pagePath": "pages/shoppingCart/shoppingCart",
+        "iconPath": "static/images/ic_menu_shoping_nor.png",
+        "selectedIconPath": "static/images/ic_menu_shoping_pressed.png",
+        "text": "购物车"
+      },
+      {
+        "pagePath": "pages/userCenter/index/index",
+        "iconPath": "static/images/ic_menu_me_nor.png",
+        "selectedIconPath": "static/images/ic_menu_me_pressed.png",
+        "text": "我的"
+      }
+    ]
   },
   "usingComponents": {}
 }

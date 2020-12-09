@@ -8096,7 +8096,7 @@ function request(url) {var data = arguments.length > 1 && arguments[1] !== undef
       method: method,
       header: {
         'Content-Type': contentType,
-        'X-Nideshop-Token': 'occdI44kWCRXbh2aV0XDh7t8SPm0'
+        'X-Nideshop-Token': 'occdI48yqugW--4hmXy52CjfDsZo'
         // 'X-Nideshop-Token': wx.getStorageSync('token')
       },
       success: function success(res) {
