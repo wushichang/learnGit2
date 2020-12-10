@@ -94,7 +94,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "components", function() { return components; });
 var components = {
   comments: function() {
-    return __webpack_require__.e(/*! import() | components/comments/comments */ "components/comments/comments").then(__webpack_require__.bind(null, /*! @/components/comments/comments.vue */ 175))
+    return __webpack_require__.e(/*! import() | components/comments/comments */ "components/comments/comments").then(__webpack_require__.bind(null, /*! @/components/comments/comments.vue */ 183))
   }
 }
 var render = function() {
@@ -134,7 +134,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var comments = function comments() {__webpack_require__.e(/*! require.ensure | components/comments/comments */ "components/comments/comments").then((function () {return resolve(__webpack_require__(/*! ../../components/comments/comments.vue */ 175));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var comments = function comments() {__webpack_require__.e(/*! require.ensure | components/comments/comments */ "components/comments/comments").then((function () {return resolve(__webpack_require__(/*! ../../components/comments/comments.vue */ 183));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
 
 
 

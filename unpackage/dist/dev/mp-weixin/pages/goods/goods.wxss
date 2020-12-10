@@ -1,0 +1,21 @@
+
+.swiBox {
+	width: 750rpx;
+	height: 750rpx;
+	position: relative;
+}
+.goodsimgs {
+	width: 750rpx;
+	height: 750rpx;
+}
+.swiBox .flotbox {
+	position: absolute;
+	top: 650rpx;
+	right: 0;
+	z-index: 1000;
+}
+.goodsimgs image {
+	width: 750rpx;
+	height: 750rpx;
+}
+

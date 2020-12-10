@@ -12,7 +12,8 @@
     "components/cateGoryDetail/top/top",
     "pages/goods/goods",
     "pages/userCenter/index/index",
-    "pages/commentPost/commentPost"
+    "pages/commentPost/commentPost",
+    "pages/topicComment/topicComment"
   ],
   "subPackages": [],
   "window": {

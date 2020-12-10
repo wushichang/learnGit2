@@ -189,7 +189,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 var util = __webpack_require__(/*! ../../util/util */ 17);
-var api = __webpack_require__(/*! ../../config/api.js */ 18);var productDisplay = function productDisplay() {__webpack_require__.e(/*! require.ensure | components/productDisplay/productDisplay */ "components/productDisplay/productDisplay").then((function () {return resolve(__webpack_require__(/*! ../../components/productDisplay/productDisplay.vue */ 154));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+var api = __webpack_require__(/*! ../../config/api.js */ 18);var productDisplay = function productDisplay() {__webpack_require__.e(/*! require.ensure | components/productDisplay/productDisplay */ "components/productDisplay/productDisplay").then((function () {return resolve(__webpack_require__(/*! ../../components/productDisplay/productDisplay.vue */ 162));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 
 

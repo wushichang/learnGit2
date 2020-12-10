@@ -10,7 +10,7 @@
 				<text class="txt">专题推荐</text>
 			</view>
 			<view class="b">
-				<navigator class="item" v-for="item in  topicList" :url="'../topicDetail/topicDetail?id='+item.id">
+				<navigator class="item" v-for="item in  topicList" :key='item.id' :url="'../topicDetail/topicDetail?id='+item.id">
 					<image class="img" :src="item.scenePicUrl"></image>
 					<text class="title">{{item.title}}</text>
 				</navigator>
