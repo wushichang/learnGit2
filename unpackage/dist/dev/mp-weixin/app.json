@@ -13,7 +13,8 @@
     "pages/goods/goods",
     "pages/userCenter/index/index",
     "pages/commentPost/commentPost",
-    "pages/topicComment/topicComment"
+    "pages/topicComment/topicComment",
+    "pages/comment/comment"
   ],
   "subPackages": [],
   "window": {

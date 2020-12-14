@@ -2,6 +2,7 @@
   "navigationBarTitleText": "首页",
   "usingComponents": {
     "search": "/components/search/search",
+    "index-type-data": "/components/indexTypeData/indexTypeData",
     "new-goods": "/components/displaySample/newGoods/newGoods",
     "hot-goods": "/components/displaySample/hotGoods/hotGoods",
     "category": "/components/displaySample/category/category",

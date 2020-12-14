@@ -9,4 +9,8 @@
 	/* height: 417rpx; */
 	height: 360rpx;
 }
+.spike,
+.group {
+	margin-bottom: 20rpx;
+}
 

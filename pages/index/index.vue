@@ -10,6 +10,11 @@
 				</navigator>
 			</swiper-item>
 		</swiper>
+
+		<!-- 秒杀 -->
+		<index-type-data name="秒杀" :dataList="skill" type="2"></index-type-data>
+		<!-- 团购 -->
+		<index-type-data name="超级拼团" :dataList="group" type="1"></index-type-data>
 		<!-- 专题精选 -->
 		<specialTopic :topicList="topicList" title="专题精选"></specialTopic>
 		<!-- 新品 -->
@@ -26,6 +31,7 @@
 	const api = require('../../config/api.js');
 
 	import search from '../../components/search/search.vue';
+	import indexTypeData from '../../components/indexTypeData/indexTypeData.vue';
 	import newGoods from '../../components/displaySample/newGoods/newGoods.vue';
 	import hotGoods from '../../components/displaySample/hotGoods/hotGoods.vue';
 	import category from '../../components/displaySample/category/category.vue';
@@ -34,6 +40,7 @@
 	export default {
 		components: {
 			search,
+			indexTypeData,
 			newGoods,
 			hotGoods,
 			category,
@@ -45,7 +52,9 @@
 				newGoodsList: [],
 				hotGoodsList: [],
 				categoryList: [],
-				topicList: [] //专题列表
+				topicList: [], //专题列表
+				skill: [],
+				group: []
 			}
 		},
 		methods: {
@@ -53,6 +62,30 @@
 				util.request(api.IndexUrlBanner).then((res) => {
 					if (res.errno === 0) {
 						this.banner = res.data.banner;
+					}
+				});
+			},
+			getSkill() {
+				util.request(api.KillList, {
+					page: 1,
+					size: 3
+				}).then((res)=>{
+					if (res.errno === 0) {
+						this.skill = res.data.data;
+						console.log('skill',this.skill);
+					}
+				});
+
+			},
+			getGroup() {
+				//团购产品
+				util.request(api.GroupList, {
+					page: 1,
+					size: 3
+				}).then((res)=>{
+					if (res.errno === 0) {
+						this.group = res.data.data;
+						console.log('group',this.group);
 					}
 				});
 			},
@@ -78,7 +111,7 @@
 				});
 			},
 			getTopicList() {
-				util.request(api.IndexUrlTopic).then((res)=>{
+				util.request(api.IndexUrlTopic).then((res) => {
 					if (res.errno === 0) {
 						this.topicList = res.data.topicList;
 					}
@@ -91,6 +124,8 @@
 			this.getHotGoods();
 			this.getCategoryList();
 			this.getTopicList();
+			this.getSkill();
+			this.getGroup();
 		}
 	}
 </script>
@@ -106,5 +141,10 @@
 		width: 100%;
 		/* height: 417rpx; */
 		height: 360rpx;
+	}
+
+	.spike,
+	.group {
+		margin-bottom: 20rpx;
 	}
 </style>

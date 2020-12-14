@@ -53,7 +53,6 @@
 		},
 		watch: {
 			endTime(newVal) {
-				console.log('执行');
 				this.countDown();
 			}
 		},
@@ -102,6 +101,9 @@
 				//此处请注意，bind(this)好像有点东西
 				this.timedown = setTimeout(this.countDown.bind(this), 1000);
 			}
+		},
+		destroyed() {
+			clearTimeout(this.timedown);
 		}
 	}
 </script>
