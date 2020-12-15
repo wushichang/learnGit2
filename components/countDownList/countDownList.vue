@@ -94,6 +94,7 @@
 					}
 					//清楚倒计时，这里没有像小程序一样抛出去，不想搞
 					//this.triggerEvent('downEnd', e, '');
+					this.$emit('downEnd',e)
 					return false;
 				}
 				// 渲染，然后每隔一秒执行一次倒计时函数

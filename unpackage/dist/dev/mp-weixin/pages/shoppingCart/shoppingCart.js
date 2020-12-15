@@ -303,7 +303,7 @@ var api = __webpack_require__(/*! ../../config/api.js */ 18);var _default =
         });
       } else {
         //编辑状态
-        // let checkedAllStatus = this.isCheckedAll();
+        var checkedAllStatus = this.isCheckedAll();
         var tmpCartData = this.cartGoods.map(function (v) {
           v.checked = !checkedAllStatus;
           return v;

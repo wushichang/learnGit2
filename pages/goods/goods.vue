@@ -5,12 +5,12 @@
 				<view class='swiBox'>
 					<swiper class="goodsimgs" indicator-dots="true" autoplay="true" interval="3000" duration="1000">
 						<swiper-item v-for="item in gallery" :key="item.id">
-							<image :src="item.imgUrl" background-size="cover"></image>
+							<image :src="item.imgUrl" background-size="cover" mode="aspectFit"></image>
 						</swiper-item>
 					</swiper>
 					<view class='flotbox' v-if="type==2">
 						<!-- <count-down-list ntype="1" endTime="{{goods.endTime}}" bind:downEnd="aa"></count-down-list> -->
-						<count-down-list ntype="1" :endTime="goods.endTime"></count-down-list>
+						<count-down-list ntype="1" :endTime="goods.endTime+''"></count-down-list>
 					</view>
 				</view>
 
@@ -27,8 +27,7 @@
 							<text class="name">{{goods.name || ''}}</text>
 						</view>
 						<text class="tx desc" v-if="goods.goodsBrief">{{goods.goodsBrief}}</text>
-						<view class="brand" v-if="brand.name">
-							<!-- 遗留 -->
+						<view class="brand" v-if="brand && brand.name">
 							<navigator :url="'../brandDetail/brandDetail?id='+brand.id">
 								<text>{{brand.name}}</text>
 							</navigator>
@@ -95,7 +94,7 @@
 							<view class="content">
 								{{comment.data.content}}
 							</view>
-							<view class="imgs" v-if="comment.data.picList.length > 0">
+							<view class="imgs" v-if="comment.data.picList && comment.data.picList.length > 0">
 								<image class="img" v-for="item in comment.data.picList" :key="item.id" :src="item.picUrl"></image>
 							</view>
 						</view>
@@ -218,7 +217,7 @@
 							<view class='right'>
 								<view class="info">
 									<label>还差{{item.successNum-item.groupNum}}人拼团</label>
-									<count-down-list :endTime="item.endTime" bind:downEnd="backfun"></count-down-list>
+									<count-down-list :endTime="item.endTime" @downEnd="backfun"></count-down-list>
 								</view>
 								<view class='gopt'>
 									<button @click="openPartMethod(item)">去拼团</button>
@@ -335,7 +334,9 @@
 				groupBuyingId: '',
 				zIndexOptions: ' ',
 				merCoupon: [],
-				goodsDesc: ''
+				goodsDesc: '',
+				isYJ: false,
+				isY: false
 			}
 		},
 		methods: {
@@ -475,7 +476,7 @@
 						}
 						console.log("comment====================================", this.comment);
 						//WxParse.wxParse('goodsDetail', 'html', res.data.info.goodsDesc, that);
-						console.log('res.data.info.goodsDesc',res.data.info.goodsDesc);
+						// console.log('res.data.info.goodsDesc',res.data.info.goodsDesc);
 						this.goodsDesc = res.data.info.goodsDesc.replace(/&nbsp;/g,' ').replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&quot;/g,'"').replace(/&amp;/g,'&').replace(/&ge;/g,'≥');
 						this.getGoodsRelated();
 					}
@@ -667,9 +668,11 @@
 				});
 			},
 			cartGoodsCountMethod() {
+				console.log('来了');
 				util.request(api.CartGoodsCount).then((res) => {
 					if (res.errno === 0) {
 						this.cartGoodsCount = res.data.cartTotal.goodsCount;
+						console.log('数量',res.data.cartTotal.goodsCount);
 					}
 				});
 			},
@@ -724,7 +727,7 @@
 			},
 			openCartPage() {
 				uni.switchTab({
-					url: '/pages/cart/cart'
+					url: '/pages/shoppingCart/shoppingCart'
 				});
 			},
 
@@ -991,13 +994,13 @@
 		},
 		onShow() {
 			//此处看还有没有登陆信息，有点不想管这个
-			let token = uni.getStorageSync('token');
-			if (!token) {
-				uni.redirectTo({
-					url: '../customer/zcuslist/zcuslist?id=' + this.id + '&type=' + this.type
-				})
-				return false;
-			}
+			// let token = uni.getStorageSync('token');
+			// if (!token) {
+			// 	uni.redirectTo({
+			// 		url: '../customer/zcuslist/zcuslist?id=' + this.id + '&type=' + this.type
+			// 	})
+			// 	return false;
+			// }
 			this.getGoodsInfo();
 			this.cartGoodsCountMethod();
 			this.getCouponList();

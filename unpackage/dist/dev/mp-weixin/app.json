@@ -14,7 +14,10 @@
     "pages/userCenter/index/index",
     "pages/commentPost/commentPost",
     "pages/topicComment/topicComment",
-    "pages/comment/comment"
+    "pages/comment/comment",
+    "pages/brandDetail/brandDetail",
+    "pages/shopping/checkout/checkout",
+    "pages/shopping/address/address"
   ],
   "subPackages": [],
   "window": {

@@ -60,7 +60,7 @@
 				cartTotal: 0, //购物车商品总数
 				checkedAllStatus: true, //全选状态
 				isEditCart: false //
-			}
+			} 
 		},
 		methods: {
 			toIndexPage() {
@@ -171,7 +171,7 @@
 					});
 				} else {
 					//编辑状态
-					// let checkedAllStatus = this.isCheckedAll();
+					let checkedAllStatus = this.isCheckedAll();
 					let tmpCartData = this.cartGoods.map(function(v) {
 						v.checked = !checkedAllStatus;
 						return v;

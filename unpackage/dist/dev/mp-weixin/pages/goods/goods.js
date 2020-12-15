@@ -438,7 +438,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 var util = __webpack_require__(/*! ../../util/util.js */ 17);
 var api = __webpack_require__(/*! ../../config/api.js */ 18);var countDownList = function countDownList() {__webpack_require__.e(/*! require.ensure | components/countDownList/countDownList */ "components/countDownList/countDownList").then((function () {return resolve(__webpack_require__(/*! ../../components/countDownList/countDownList.vue */ 234));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
@@ -490,7 +489,9 @@ var api = __webpack_require__(/*! ../../config/api.js */ 18);var countDownList =
       groupBuyingId: '',
       zIndexOptions: ' ',
       merCoupon: [],
-      goodsDesc: '' };
+      goodsDesc: '',
+      isYJ: false,
+      isY: false };
 
   },
   methods: {
@@ -630,7 +631,7 @@ var api = __webpack_require__(/*! ../../config/api.js */ 18);var countDownList =
           }
           console.log("comment====================================", _this3.comment);
           //WxParse.wxParse('goodsDetail', 'html', res.data.info.goodsDesc, that);
-          console.log('res.data.info.goodsDesc', res.data.info.goodsDesc);
+          // console.log('res.data.info.goodsDesc',res.data.info.goodsDesc);
           _this3.goodsDesc = res.data.info.goodsDesc.replace(/&nbsp;/g, ' ').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&amp;/g, '&').replace(/&ge;/g, '≥');
           _this3.getGoodsRelated();
         }
@@ -822,9 +823,11 @@ var api = __webpack_require__(/*! ../../config/api.js */ 18);var countDownList =
       });
     },
     cartGoodsCountMethod: function cartGoodsCountMethod() {var _this5 = this;
+      console.log('来了');
       util.request(api.CartGoodsCount).then(function (res) {
         if (res.errno === 0) {
           _this5.cartGoodsCount = res.data.cartTotal.goodsCount;
+          console.log('数量', res.data.cartTotal.goodsCount);
         }
       });
     },
@@ -879,7 +882,7 @@ var api = __webpack_require__(/*! ../../config/api.js */ 18);var countDownList =
     },
     openCartPage: function openCartPage() {
       uni.switchTab({
-        url: '/pages/cart/cart' });
+        url: '/pages/shoppingCart/shoppingCart' });
 
     },
 
@@ -1146,13 +1149,13 @@ var api = __webpack_require__(/*! ../../config/api.js */ 18);var countDownList =
   },
   onShow: function onShow() {
     //此处看还有没有登陆信息，有点不想管这个
-    var token = uni.getStorageSync('token');
-    if (!token) {
-      uni.redirectTo({
-        url: '../customer/zcuslist/zcuslist?id=' + this.id + '&type=' + this.type });
-
-      return false;
-    }
+    // let token = uni.getStorageSync('token');
+    // if (!token) {
+    // 	uni.redirectTo({
+    // 		url: '../customer/zcuslist/zcuslist?id=' + this.id + '&type=' + this.type
+    // 	})
+    // 	return false;
+    // }
     this.getGoodsInfo();
     this.cartGoodsCountMethod();
     this.getCouponList();
