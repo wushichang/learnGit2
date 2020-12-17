@@ -668,11 +668,9 @@
 				});
 			},
 			cartGoodsCountMethod() {
-				console.log('来了');
 				util.request(api.CartGoodsCount).then((res) => {
 					if (res.errno === 0) {
 						this.cartGoodsCount = res.data.cartTotal.goodsCount;
-						console.log('数量',res.data.cartTotal.goodsCount);
 					}
 				});
 			},

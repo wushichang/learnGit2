@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/userCenter/order/order",
     "pages/index/index",
     "pages/shoppingCart/shoppingCart",
     "pages/catalog/catalog",
@@ -17,7 +18,10 @@
     "pages/comment/comment",
     "pages/brandDetail/brandDetail",
     "pages/shopping/checkout/checkout",
-    "pages/shopping/address/address"
+    "pages/shopping/address/address",
+    "pages/shopping/addressAdd/addressAdd",
+    "pages/shopping/selCoupon/selCoupon",
+    "pages/userCenter/orderDetail/orderDetail"
   ],
   "subPackages": [],
   "window": {

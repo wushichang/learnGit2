@@ -130,7 +130,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var productPost = function productPost() {__webpack_require__.e(/*! require.ensure | components/productPost/productPost */ "components/productPost/productPost").then((function () {return resolve(__webpack_require__(/*! ../../components/productPost/productPost.vue */ 215));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var productDisplay = function productDisplay() {__webpack_require__.e(/*! require.ensure | components/productDisplay/productDisplay */ "components/productDisplay/productDisplay").then((function () {return resolve(__webpack_require__(/*! ../../components/productDisplay/productDisplay.vue */ 187));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var productPost = function productPost() {__webpack_require__.e(/*! require.ensure | components/productPost/productPost */ "components/productPost/productPost").then((function () {return resolve(__webpack_require__(/*! ../../components/productPost/productPost.vue */ 255));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var productDisplay = function productDisplay() {__webpack_require__.e(/*! require.ensure | components/productDisplay/productDisplay */ "components/productDisplay/productDisplay").then((function () {return resolve(__webpack_require__(/*! ../../components/productDisplay/productDisplay.vue */ 227));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
 
 
 

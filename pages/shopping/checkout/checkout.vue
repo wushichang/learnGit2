@@ -27,7 +27,7 @@
 			<view class="goods-items">
 				<view class="item" v-for="item in checkedGoodsList" :key="item.id">
 					<view class='proName'>{{item.merchantName || ''}}</view>
-					<view class='proBox' v-for='(iindex,iitem) in item.cartList' :key='iitem.id'>
+					<view class='proBox' v-for='(iitem,iindex) in item.cartList' :key='iitem.id'>
 						<view class="img">
 							<image :src="iitem.listPicUrl"></image>
 						</view>
@@ -40,7 +40,7 @@
 							<view class="b">￥{{iitem.retailPrice || '0.00'}}</view>
 						</view>
 					</view>
-					<view class="coupon-box" :data-merid="item.merchantId" data-price="item.orderTotalPrice" @click='tapCoupon'>
+					<view class="coupon-box" :data-merid="item.merchantId" :data-price="item.orderTotalPrice" @click='tapCoupon'>
 						<view class="coupon-item">
 							<view class="l">
 								<text class="name">请选择优惠券</text>
@@ -213,8 +213,8 @@
 				var merid = e.currentTarget.dataset.merid;
 				var price = e.currentTarget.dataset.price;
 				uni.navigateTo({
-					url: '../selCoupon/selCoupon?buyType=' + this.buyType + '&merid=' + merid + '&price=' + price
-				})
+					url: "/pages/shopping/selCoupon/selCoupon?buyType="+this.buyType + '&merid=' + merid + '&price=' + price 
+				});
 			},
 
 			submitOrder() {

@@ -1,0 +1,3 @@
+Component({})ponents": {},
+  "component": true
+}

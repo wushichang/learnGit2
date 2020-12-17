@@ -440,7 +440,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 var util = __webpack_require__(/*! ../../util/util.js */ 17);
-var api = __webpack_require__(/*! ../../config/api.js */ 18);var countDownList = function countDownList() {__webpack_require__.e(/*! require.ensure | components/countDownList/countDownList */ "components/countDownList/countDownList").then((function () {return resolve(__webpack_require__(/*! ../../components/countDownList/countDownList.vue */ 234));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+var api = __webpack_require__(/*! ../../config/api.js */ 18);var countDownList = function countDownList() {__webpack_require__.e(/*! require.ensure | components/countDownList/countDownList */ "components/countDownList/countDownList").then((function () {return resolve(__webpack_require__(/*! ../../components/countDownList/countDownList.vue */ 274));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 
 
@@ -823,11 +823,9 @@ var api = __webpack_require__(/*! ../../config/api.js */ 18);var countDownList =
       });
     },
     cartGoodsCountMethod: function cartGoodsCountMethod() {var _this5 = this;
-      console.log('来了');
       util.request(api.CartGoodsCount).then(function (res) {
         if (res.errno === 0) {
           _this5.cartGoodsCount = res.data.cartTotal.goodsCount;
-          console.log('数量', res.data.cartTotal.goodsCount);
         }
       });
     },
