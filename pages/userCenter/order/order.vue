@@ -242,7 +242,7 @@
 		},
 		onLoad(options) {
 			// 页面初始化 options为页面跳转所带来的参数
-			this.orderId = options.id || -1;
+			this.orderId = options.id;
 			uni.showLoading({
 				title: '加载中...'
 			});

@@ -1,3 +1,0 @@
-Component({})ponents": {},
-  "component": true
-}
