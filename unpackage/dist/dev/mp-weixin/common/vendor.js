@@ -1,6 +1,6 @@
-(global["webpackJsonp"] = global["webpackJsonp"] || []).push([["common/vendor"],[
-/* 0 */,
-/* 1 */
+(global["webpackJsonp"] = global["webpackJsonp"] || []).push([["common/vendor"],{
+
+/***/ 1:
 /*!************************************************************!*\
   !*** ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js ***!
   \************************************************************/
@@ -1805,7 +1805,498 @@ var uni$1 = uni;var _default =
 uni$1;exports.default = _default;
 
 /***/ }),
-/* 2 */
+
+/***/ 10:
+/*!**********************************************************************************************************!*\
+  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/runtime/componentNormalizer.js ***!
+  \**********************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return normalizeComponent; });
+/* globals __VUE_SSR_CONTEXT__ */
+
+// IMPORTANT: Do NOT use ES2015 features in this file (except for modules).
+// This module is a runtime utility for cleaner component module output and will
+// be included in the final webpack user bundle.
+
+function normalizeComponent (
+  scriptExports,
+  render,
+  staticRenderFns,
+  functionalTemplate,
+  injectStyles,
+  scopeId,
+  moduleIdentifier, /* server only */
+  shadowMode, /* vue-cli only */
+  components, // fixed by xxxxxx auto components
+  renderjs // fixed by xxxxxx renderjs
+) {
+  // Vue.extend constructor export interop
+  var options = typeof scriptExports === 'function'
+    ? scriptExports.options
+    : scriptExports
+
+  // fixed by xxxxxx auto components
+  if (components) {
+    if (!options.components) {
+      options.components = {}
+    }
+    var hasOwn = Object.prototype.hasOwnProperty
+    for (var name in components) {
+      if (hasOwn.call(components, name) && !hasOwn.call(options.components, name)) {
+        options.components[name] = components[name]
+      }
+    }
+  }
+  // fixed by xxxxxx renderjs
+  if (renderjs) {
+    (renderjs.beforeCreate || (renderjs.beforeCreate = [])).unshift(function() {
+      this[renderjs.__module] = this
+    });
+    (options.mixins || (options.mixins = [])).push(renderjs)
+  }
+
+  // render functions
+  if (render) {
+    options.render = render
+    options.staticRenderFns = staticRenderFns
+    options._compiled = true
+  }
+
+  // functional template
+  if (functionalTemplate) {
+    options.functional = true
+  }
+
+  // scopedId
+  if (scopeId) {
+    options._scopeId = 'data-v-' + scopeId
+  }
+
+  var hook
+  if (moduleIdentifier) { // server build
+    hook = function (context) {
+      // 2.3 injection
+      context =
+        context || // cached call
+        (this.$vnode && this.$vnode.ssrContext) || // stateful
+        (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext) // functional
+      // 2.2 with runInNewContext: true
+      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+        context = __VUE_SSR_CONTEXT__
+      }
+      // inject component styles
+      if (injectStyles) {
+        injectStyles.call(this, context)
+      }
+      // register component module identifier for async chunk inferrence
+      if (context && context._registeredComponents) {
+        context._registeredComponents.add(moduleIdentifier)
+      }
+    }
+    // used by ssr in case component is cached and beforeCreate
+    // never gets called
+    options._ssrRegister = hook
+  } else if (injectStyles) {
+    hook = shadowMode
+      ? function () { injectStyles.call(this, this.$root.$options.shadowRoot) }
+      : injectStyles
+  }
+
+  if (hook) {
+    if (options.functional) {
+      // for template-only hot-reload because in that case the render fn doesn't
+      // go through the normalizer
+      options._injectStyles = hook
+      // register for functioal component in vue file
+      var originalRender = options.render
+      options.render = function renderWithStyleInjection (h, context) {
+        hook.call(context)
+        return originalRender(h, context)
+      }
+    } else {
+      // inject component registration as beforeCreate hook
+      var existing = options.beforeCreate
+      options.beforeCreate = existing
+        ? [].concat(existing, hook)
+        : [hook]
+    }
+  }
+
+  return {
+    exports: scriptExports,
+    options: options
+  }
+}
+
+
+/***/ }),
+
+/***/ 17:
+/*!***********************************************!*\
+  !*** D:/HBuilderXProjects/store/util/util.js ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function(uni) {function formatTime(date) {
+  var year = date.getFullYear();
+  var month = date.getMonth() + 1;
+  var day = date.getDate();
+
+  var hour = date.getHours();
+  var minute = date.getMinutes();
+  var second = date.getSeconds();
+
+
+  return [year, month, day].map(formatNumber).join('-') + ' ' + [hour, minute, second].map(formatNumber).join(':');
+}
+
+function validatePhone(phone) {
+  var re = /^((13|14|15|16|17|18|19)[0-9]{1}\d{8})$/;
+  return re.test(phone);
+}
+
+/**
+   * 时间戳转化为年 月 日 时 分 秒
+   * number: 传入时间戳
+   * format：返回格式，支持自定义，但参数必须与formateArr里保持一致
+   */
+function nformatTime(number, format) {
+
+  var formateArr = ['Y', 'M', 'D', 'h', 'm', 's'];
+  var returnArr = [];
+
+  var date = new Date(number * 1000);
+  returnArr.push(date.getFullYear());
+  returnArr.push(formatNumber(date.getMonth() + 1));
+  returnArr.push(formatNumber(date.getDate()));
+
+  returnArr.push(formatNumber(date.getHours()));
+  returnArr.push(formatNumber(date.getMinutes()));
+  returnArr.push(formatNumber(date.getSeconds()));
+
+  for (var i in returnArr) {
+    format = format.replace(formateArr[i], returnArr[i]);
+  }
+  return format;
+}
+
+function formatNumber(n) {
+  n = n.toString();
+  return n[1] ? n : '0' + n;
+}
+
+/**
+   * 封封微信的的request
+   */
+function request(url) {var data = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var method = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : "GET";var contentType = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : "application/json";
+  return new Promise(function (resolve, reject) {
+    uni.request({
+      url: url,
+      data: data,
+      method: method,
+      header: {
+        'Content-Type': contentType,
+        'X-Nideshop-Token': 'occdI48yqugW--4hmXy52CjfDsZo'
+        // 'X-Nideshop-Token': wx.getStorageSync('token')
+      },
+      success: function success(res) {
+        if (res.statusCode == 200) {
+
+          if (res.data.errno == 401) {
+            //需要登录后才可以操作
+            wx.showModal({
+              title: '',
+              content: '请先登录',
+              success: function success(res) {
+                if (res.confirm) {
+                  wx.removeStorageSync("userInfo");
+                  wx.removeStorageSync("token");
+                  wx.switchTab({
+                    url: '/pages/ucenter/index/index' });
+
+                }
+              } });
+
+          } else {
+            resolve(res.data);
+          }
+        } else {
+          reject(res.errMsg);
+        }
+
+      },
+      fail: function fail(err) {
+        reject(err);
+      } });
+
+  });
+}
+
+function getQueryString(url, name) {
+  var reg = new RegExp('(^|&|/?)' + name + '=([^&|/?]*)(&|/?|$)', 'i');
+  var r = url.substr(1).match(reg);
+  if (r != null) {
+    return r[2];
+  }
+  return null;
+}
+
+/**
+   * 检查微信会话是否过期
+   */
+function checkSession() {
+  return new Promise(function (resolve, reject) {
+    wx.checkSession({
+      success: function success() {
+        resolve(true);
+      },
+      fail: function fail() {
+        reject(false);
+      } });
+
+  });
+}
+
+/**
+   * 调用微信登录
+   */
+function login() {
+  return new Promise(function (resolve, reject) {
+    wx.login({
+      success: function success(res) {
+        if (res.code) {
+          //登录远程服务器
+          resolve(res);
+        } else {
+          reject(res);
+        }
+      },
+      fail: function fail(err) {
+        reject(err);
+      } });
+
+  });
+}
+
+
+function loginForApp() {
+  return new Promise(function (resolve, reject) {
+    uni.login({
+      provider: 'weixin',
+      success: function success(res) {
+        if (res.code) {
+          //登录远程服务器
+          resolve(res);
+        } else {
+          reject(res);
+        }
+
+      },
+      fail: function fail(err) {
+        reject(err);
+      } });
+
+
+  });
+}
+
+function redirect(url) {
+
+  //判断页面是否需要登录
+  if (false) {} else {
+    wx.redirectTo({
+      url: url });
+
+  }
+}
+
+function showErrorToast(msg) {
+  wx.showToast({
+    title: msg,
+    image: '/static/images/icon_error.png' });
+
+}
+
+function showSuccessToast(msg) {
+  wx.showToast({
+    title: msg });
+
+}
+
+function accSub(arg1, arg2) {
+  var r1, r2, m, n;
+  try {
+    r1 = arg1.toString().split(".")[1].length;
+  } catch (e) {
+    r1 = 0;
+  }
+  try {
+    r2 = arg2.toString().split(".")[1].length;
+  } catch (e) {
+    r2 = 0;
+  }
+  m = Math.pow(10, Math.max(r1, r2)); //last modify by deeka //动态控制精度长度
+  n = r1 >= r2 ? r1 : r2;
+  return ((arg1 * m - arg2 * m) / m).toFixed(n);
+}
+
+module.exports = {
+  formatTime: formatTime,
+  nformatTime: nformatTime,
+  request: request,
+  redirect: redirect,
+  showErrorToast: showErrorToast,
+  showSuccessToast: showSuccessToast,
+  checkSession: checkSession,
+  login: login,
+  loginForApp: loginForApp,
+  validatePhone: validatePhone,
+  getQueryString: getQueryString,
+  accSub: accSub };
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+
+/***/ }),
+
+/***/ 18:
+/*!************************************************!*\
+  !*** D:/HBuilderXProjects/store/config/api.js ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// var NewApiRootUrl = 'http://127.0.0.1:8080/yy-shop-api/api/';
+var NewApiRootUrl = 'http://192.168.147.1:8080/yy-shop-api/api/';
+//var NewApiRootUrl = 'http://192.168.1.100:80/yy-shop-api/api/';
+//  var NewApiRootUrl = 'http://192.168.1.66:8080/yy-shop-api/api/';
+// var NewApiRootUrl = 'http://127.0.0.1:80/yy-shop-api/api/';
+//var NewApiRootUrl = 'http://haoyaoshop.api.hongyisoft.cn:8080/yy-shop-api/api/';
+// var NewApiRootUrl = 'http://dev.51shop.ink/demo/api/'
+// var NewApiRootUrl = 'https://fx.51shop.ink/drsshop/api/'
+// var NewApiRootUrl = 'https://shop.beastiot.com/yy-shop-api/api/';
+module.exports = {
+  IndexUrlNewGoods: NewApiRootUrl + 'index/newGoods', //
+  IndexUrlHotGoods: NewApiRootUrl + 'index/hotGoods', //首页数据接口
+  IndexUrlTopic: NewApiRootUrl + 'index/topic', //首页数据接口
+  IndexUrlBrand: NewApiRootUrl + 'index/brand', //首页数据接口IndexUrlChannel
+  IndexUrlCategory: NewApiRootUrl + 'index/category', //首页数据接口IndexUrlChannel
+  IndexUrlBanner: NewApiRootUrl + 'index/banner', //首页数据接口IndexUrlChannel
+  IndexUrlChannel: NewApiRootUrl + 'index/channel', //首页数据接口IndexUrlChannel
+  IndexUrlSkill: NewApiRootUrl + 'index/secKill', //首页秒杀产品
+  CatalogList: NewApiRootUrl + 'catalog/index', //分类目录全部分类数据接口
+  CatalogCurrent: NewApiRootUrl + 'catalog/current', //分类目录当前分类数据接口
+
+  AuthLoginByWeixin: NewApiRootUrl + 'auth/loginByWeixin', //微信登录
+
+  GoodsCount: NewApiRootUrl + 'goods/count', //统计商品总数
+  GoodsList: NewApiRootUrl + 'goods/list', //获得商品列表
+  GoodsCategory: NewApiRootUrl + 'goods/category', //获得分类数据
+  GoodsDetail: NewApiRootUrl + 'goods/detail', //获得商品的详情
+  GoodsNew: NewApiRootUrl + 'goods/new', //新品
+  GoodsHot: NewApiRootUrl + 'goods/hot', //热门
+  GoodsRelated: NewApiRootUrl + 'goods/related', //商品详情页的关联商品（大家都在看）
+
+  BrandList: NewApiRootUrl + 'brand/list', //品牌列表
+  BrandDetail: NewApiRootUrl + 'brand/detail', //品牌详情
+
+  CartList: NewApiRootUrl + 'cart/index', //获取购物车的数据
+  CartAdd: NewApiRootUrl + 'cart/add', // 添加商品到购物车
+  BuyAdd: NewApiRootUrl + 'buy/add', // 直接购买
+  CartUpdate: NewApiRootUrl + 'cart/update', // 更新购物车的商品
+  CartDelete: NewApiRootUrl + 'cart/delete', // 删除购物车的商品
+  CartChecked: NewApiRootUrl + 'cart/checked', // 选择或取消选择商品
+  CartGoodsCount: NewApiRootUrl + 'cart/goodscount', // 获取购物车商品件数
+  CartCheckout: NewApiRootUrl + 'cart/checkout', // 下单前信息确认
+
+  BuyCheckout: NewApiRootUrl + 'buy/checkout', // 下单前信息确认
+
+  OrderSubmit: NewApiRootUrl + 'order/submit', // 提交订单
+  PayPrepayId: NewApiRootUrl + 'pay/prepay', //获取微信统一下单prepayId
+
+  CollectList: NewApiRootUrl + 'collect/list', //收藏列表
+  CollectAddOrDelete: NewApiRootUrl + 'collect/addordelete', //添加或取消收藏
+
+  CommentList: NewApiRootUrl + 'comment/list', //评论列表
+  CommentCount: NewApiRootUrl + 'comment/count', //评论总数
+  CommentPost: NewApiRootUrl + 'comment/post', //发表评论
+
+  TopicList: NewApiRootUrl + 'topic/list', //专题列表
+  TopicDetail: NewApiRootUrl + 'topic/detail', //专题详情
+  TopicRelated: NewApiRootUrl + 'topic/related', //相关专题
+
+  SearchIndex: NewApiRootUrl + 'search/index', //搜索页面数据
+  SearchResult: NewApiRootUrl + 'search/result', //搜索数据
+  SearchHelper: NewApiRootUrl + 'search/helper', //搜索帮助
+  SearchClearHistory: NewApiRootUrl + 'search/clearhistory', //搜索帮助
+
+  AddressList: NewApiRootUrl + 'address/addressUserlist', //收货地址列表
+  // AddressList: NewApiRootUrl + 'address/list',  //收货地址列表
+  AddressDetail: NewApiRootUrl + 'address/detail', //收货地址详情
+  AddressSave: NewApiRootUrl + 'address/save', //保存收货地址
+  AddressDelete: NewApiRootUrl + 'address/delete', //保存收货地址
+
+  RegionList: NewApiRootUrl + 'area/list', //获取区域列表
+
+  OrderList: NewApiRootUrl + 'order/list', //订单列表
+  OrderDetail: NewApiRootUrl + 'order/detail', //订单详情
+  OrderCancel: NewApiRootUrl + 'order/cancelOrder', //取消订单
+  OrderConfirm: NewApiRootUrl + 'order/confirmOrder', //确认收货
+
+  FootprintList: NewApiRootUrl + 'footprint/list', //足迹列表
+  FootprintDelete: NewApiRootUrl + 'footprint/delete', //删除足迹
+
+  FeedbackAdd: NewApiRootUrl + 'feedback/save', //添加反馈
+  SmsCode: NewApiRootUrl + 'sendRegisterCode', //发送短信
+  BindMobile: NewApiRootUrl + 'inviteReg', //fx注册
+  Login: NewApiRootUrl + 'auth/login', //账号登录
+  Register: NewApiRootUrl + 'auth/register', //注册
+  CouponList: NewApiRootUrl + 'coupon/list', // 优惠券列表
+  GoodsCouponList: NewApiRootUrl + 'coupon/listByGoods', // 商品优惠券列表   
+  OrderQuery: NewApiRootUrl + 'pay/query',
+  OrderSuccess: NewApiRootUrl + 'order/updateSuccess',
+  CustomerSave: NewApiRootUrl + 'customer/save.do', //新增客户
+  CustomerEdit: NewApiRootUrl + 'customer/update.do', //修改客户
+  CustomerList: NewApiRootUrl + 'customer/queryList.do', //客户列表查询分页
+  AllCustomerList: NewApiRootUrl + 'customer/queryAllList.do', //客户列表查询分页
+  UpkeepList: NewApiRootUrl + 'upkeep/queryUpkeepList.do', //客户管理列表
+  dgKeepList: NewApiRootUrl + 'upkeep/queryList.do', //单个用户的客户管理列
+  ServiceGoods: NewApiRootUrl + 'index/serviceGoods', //首页所有商品
+  QueryList: NewApiRootUrl + 'upkeep/queryList.do', //单个客户的维护列表
+  WhSave: NewApiRootUrl + 'upkeep/save.do', //维护历史保存
+  WhUpdate: NewApiRootUrl + 'upkeep/update.do', //维护历史修改
+  QueryObject: NewApiRootUrl + 'upkeep/queryObject.do', //
+  CustomerObject: NewApiRootUrl + 'customer/queryObject.do',
+  IsRealValidate: NewApiRootUrl + 'customer/realFlagValidate.do', //实名认证
+  BirthdayList: NewApiRootUrl + 'user/getBirthdayList', //生日列表
+  Holiday: NewApiRootUrl + 'user/getHoliday', //节假日提醒
+  CreateCode: NewApiRootUrl + 'auth/createCode',
+  UserInfoById: NewApiRootUrl + 'user/getUserInfoById.do', //获取实名认证信息
+  DtoLis: NewApiRootUrl + 'customer/queryDtoList.do', //获取客户信息
+  GetCount: NewApiRootUrl + 'customer/getCount.do', //获取客户统计
+  UpkeepUpdate: NewApiRootUrl + 'upkeep/update.do', //编辑维护历史,
+  CouponListByMer: NewApiRootUrl + 'coupon/listMer.do', //商户优惠卷
+  TakeMerCoupon: NewApiRootUrl + 'coupon/getMerCoupon.do', //商户优惠卷
+  ValidCouponList: NewApiRootUrl + 'coupon/getValidCouponList.do', //选择优惠卷列表
+  FansList: NewApiRootUrl + 'user/getSonUser', //我的粉丝
+  FUser: NewApiRootUrl + 'user/getFUser', //我的推荐人
+  Commission: NewApiRootUrl + 'user/getMlsUser', //佣金
+  InsShareGoods: NewApiRootUrl + 'user/insShareGoods', //新增分享历史
+  GetShareGoods: NewApiRootUrl + 'user/getShareGoods', //获取分享历史
+  WithdrawCashes: NewApiRootUrl + 'user/withdrawCashes', //提现
+  SetFid: NewApiRootUrl + 'mlsuser/setFid', //mlsuser/setFid
+  GroupList: NewApiRootUrl + 'goods/group.do', //团购
+  KillList: NewApiRootUrl + 'goods/kill.do', //秒杀
+  GroupBuyList: NewApiRootUrl + 'buy/getGroupBuyList.do', //团购列表
+  LoginByMobile: NewApiRootUrl + 'auth/login' //手机号登陆
+};
+
+/***/ }),
+
+/***/ 2:
 /*!******************************************************************************************!*\
   !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js ***!
   \******************************************************************************************/
@@ -7851,7 +8342,143 @@ internalMixin(Vue);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../../../webpack/buildin/global.js */ 3)))
 
 /***/ }),
-/* 3 */
+
+/***/ 233:
+/*!***************************************************!*\
+  !*** D:/HBuilderXProjects/store/services/user.js ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function(uni) {/**
+ * 用户相关服务
+ */
+
+var util = __webpack_require__(/*! ../util/util.js */ 17);
+var api = __webpack_require__(/*! ../config/api.js */ 18);
+
+/**
+                                        * 调用微信登录
+                                        */
+function loginByWeixin(userInfo) {
+  console.log("-----1----");
+  console.log(userInfo.userInfo);
+  var code = null;
+  return new Promise(function (resolve, reject) {
+    return util.login().then(function (res) {
+      code = res.code;
+      return userInfo;
+    }).then(function (userInfo) {
+      //登录远程服务器
+      var params = {};
+      params.code = code;
+      params.avatarUrl = userInfo.userInfo.avatarUrl;
+      params.city = userInfo.userInfo.city;
+      params.country = userInfo.userInfo.country;
+      params.gender = userInfo.userInfo.gender;
+      params.language = userInfo.userInfo.language;
+      params.nickName = userInfo.userInfo.nickName;
+      params.province = userInfo.userInfo.province;
+      params.promoterId = wx.getStorageSync('userId') || 0;
+      params.merchantId = wx.getStorageSync('merchantId') || 0;
+      console.log('-----********---------', JSON.stringify(params));
+      util.request(api.AuthLoginByWeixin, params, 'POST').then(function (res) {
+        if (res.errno === 0) {
+          //存储用户信息
+          wx.setStorageSync('userInfo', userInfo);
+          wx.setStorageSync('token', res.data.userVo.weixinOpenid);
+          wx.setStorageSync('realFlag', res.data.userVo.realFlag);
+          wx.setStorageSync('uId', res.data.userVo.userId);
+          console.log('-----#######---------', res.data.userVo.userId);
+          if (wx.getStorageSync('userId')) {
+            wx.removeStorageSync('userId');
+            // wx.setStorageSync('userId');
+          }
+          resolve(res);
+        } else {
+          util.showErrorToast(res.errmsg);
+          reject(res);
+        }
+      }).catch(function (err) {
+        reject(err);
+      });
+    }).catch(function (err) {
+      reject(err);
+    });
+  });
+}
+
+
+
+function loginByWeixinForApp(userInfo, code) {
+  console.log("-----1----");
+  console.log(userInfo.userInfo);
+  return new Promise(function (resolve, reject) {
+    //登录远程服务器
+    var params = {};
+    params.code = code;
+    params.avatarUrl = userInfo.userInfo.avatarUrl;
+    params.city = userInfo.userInfo.city;
+    params.country = userInfo.userInfo.country;
+    params.gender = userInfo.userInfo.gender;
+    params.language = userInfo.userInfo.language;
+    params.nickName = userInfo.userInfo.nickName;
+    params.province = userInfo.userInfo.province;
+    params.promoterId = uni.getStorageSync('userId') || 0;
+    params.merchantId = uni.getStorageSync('merchantId') || 0;
+    console.log('-----********---------', JSON.stringify(params));
+    util.request(api.AuthLoginByWeixin, params, 'POST').then(function (res) {
+      if (res.errno === 0) {
+        //存储用户信息
+        uni.setStorageSync('userInfo', userInfo);
+        uni.setStorageSync('token', res.data.userVo.weixinOpenid);
+        uni.setStorageSync('realFlag', res.data.userVo.realFlag);
+        uni.setStorageSync('uId', res.data.userVo.userId);
+        console.log('-----#######---------', res.data.userVo.userId);
+        if (uni.getStorageSync('userId')) {
+          uni.removeStorageSync('userId');
+          // wx.setStorageSync('userId');
+        }
+        resolve(res);
+      } else {
+        util.showErrorToast(res.errmsg);
+        reject(res);
+      }
+    }).catch(function (err) {
+      reject(err);
+    });
+  });
+}
+
+/**
+   * 判断用户是否登录
+   */
+function checkLogin() {
+  return new Promise(function (resolve, reject) {
+    if (wx.getStorageSync('userInfo') && wx.getStorageSync('token')) {
+
+      util.checkSession().then(function () {
+        resolve(true);
+      }).catch(function () {
+        reject(false);
+      });
+
+    } else {
+      reject(false);
+    }
+  });
+}
+
+
+module.exports = {
+  loginByWeixin: loginByWeixin,
+  loginByWeixinForApp: loginByWeixinForApp,
+  checkLogin: checkLogin };
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+
+/***/ }),
+
+/***/ 3:
 /*!***********************************!*\
   !*** (webpack)/buildin/global.js ***!
   \***********************************/
@@ -7881,7 +8508,8 @@ module.exports = g;
 
 
 /***/ }),
-/* 4 */
+
+/***/ 4:
 /*!*********************************************!*\
   !*** D:/HBuilderXProjects/store/pages.json ***!
   \*********************************************/
@@ -7890,480 +8518,7 @@ module.exports = g;
 
 
 
-/***/ }),
-/* 5 */,
-/* 6 */,
-/* 7 */,
-/* 8 */,
-/* 9 */,
-/* 10 */
-/*!**********************************************************************************************************!*\
-  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/runtime/componentNormalizer.js ***!
-  \**********************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return normalizeComponent; });
-/* globals __VUE_SSR_CONTEXT__ */
-
-// IMPORTANT: Do NOT use ES2015 features in this file (except for modules).
-// This module is a runtime utility for cleaner component module output and will
-// be included in the final webpack user bundle.
-
-function normalizeComponent (
-  scriptExports,
-  render,
-  staticRenderFns,
-  functionalTemplate,
-  injectStyles,
-  scopeId,
-  moduleIdentifier, /* server only */
-  shadowMode, /* vue-cli only */
-  components, // fixed by xxxxxx auto components
-  renderjs // fixed by xxxxxx renderjs
-) {
-  // Vue.extend constructor export interop
-  var options = typeof scriptExports === 'function'
-    ? scriptExports.options
-    : scriptExports
-
-  // fixed by xxxxxx auto components
-  if (components) {
-    if (!options.components) {
-      options.components = {}
-    }
-    var hasOwn = Object.prototype.hasOwnProperty
-    for (var name in components) {
-      if (hasOwn.call(components, name) && !hasOwn.call(options.components, name)) {
-        options.components[name] = components[name]
-      }
-    }
-  }
-  // fixed by xxxxxx renderjs
-  if (renderjs) {
-    (renderjs.beforeCreate || (renderjs.beforeCreate = [])).unshift(function() {
-      this[renderjs.__module] = this
-    });
-    (options.mixins || (options.mixins = [])).push(renderjs)
-  }
-
-  // render functions
-  if (render) {
-    options.render = render
-    options.staticRenderFns = staticRenderFns
-    options._compiled = true
-  }
-
-  // functional template
-  if (functionalTemplate) {
-    options.functional = true
-  }
-
-  // scopedId
-  if (scopeId) {
-    options._scopeId = 'data-v-' + scopeId
-  }
-
-  var hook
-  if (moduleIdentifier) { // server build
-    hook = function (context) {
-      // 2.3 injection
-      context =
-        context || // cached call
-        (this.$vnode && this.$vnode.ssrContext) || // stateful
-        (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext) // functional
-      // 2.2 with runInNewContext: true
-      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
-        context = __VUE_SSR_CONTEXT__
-      }
-      // inject component styles
-      if (injectStyles) {
-        injectStyles.call(this, context)
-      }
-      // register component module identifier for async chunk inferrence
-      if (context && context._registeredComponents) {
-        context._registeredComponents.add(moduleIdentifier)
-      }
-    }
-    // used by ssr in case component is cached and beforeCreate
-    // never gets called
-    options._ssrRegister = hook
-  } else if (injectStyles) {
-    hook = shadowMode
-      ? function () { injectStyles.call(this, this.$root.$options.shadowRoot) }
-      : injectStyles
-  }
-
-  if (hook) {
-    if (options.functional) {
-      // for template-only hot-reload because in that case the render fn doesn't
-      // go through the normalizer
-      options._injectStyles = hook
-      // register for functioal component in vue file
-      var originalRender = options.render
-      options.render = function renderWithStyleInjection (h, context) {
-        hook.call(context)
-        return originalRender(h, context)
-      }
-    } else {
-      // inject component registration as beforeCreate hook
-      var existing = options.beforeCreate
-      options.beforeCreate = existing
-        ? [].concat(existing, hook)
-        : [hook]
-    }
-  }
-
-  return {
-    exports: scriptExports,
-    options: options
-  }
-}
-
-
-/***/ }),
-/* 11 */,
-/* 12 */,
-/* 13 */,
-/* 14 */,
-/* 15 */,
-/* 16 */,
-/* 17 */
-/*!***********************************************!*\
-  !*** D:/HBuilderXProjects/store/util/util.js ***!
-  \***********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-/* WEBPACK VAR INJECTION */(function(uni) {function formatTime(date) {
-  var year = date.getFullYear();
-  var month = date.getMonth() + 1;
-  var day = date.getDate();
-
-  var hour = date.getHours();
-  var minute = date.getMinutes();
-  var second = date.getSeconds();
-
-
-  return [year, month, day].map(formatNumber).join('-') + ' ' + [hour, minute, second].map(formatNumber).join(':');
-}
-
-function validatePhone(phone) {
-  var re = /^((13|14|15|16|17|18|19)[0-9]{1}\d{8})$/;
-  return re.test(phone);
-}
-
-/**
-   * 时间戳转化为年 月 日 时 分 秒
-   * number: 传入时间戳
-   * format：返回格式，支持自定义，但参数必须与formateArr里保持一致
-  */
-function nformatTime(number, format) {
-
-  var formateArr = ['Y', 'M', 'D', 'h', 'm', 's'];
-  var returnArr = [];
-
-  var date = new Date(number * 1000);
-  returnArr.push(date.getFullYear());
-  returnArr.push(formatNumber(date.getMonth() + 1));
-  returnArr.push(formatNumber(date.getDate()));
-
-  returnArr.push(formatNumber(date.getHours()));
-  returnArr.push(formatNumber(date.getMinutes()));
-  returnArr.push(formatNumber(date.getSeconds()));
-
-  for (var i in returnArr) {
-    format = format.replace(formateArr[i], returnArr[i]);
-  }
-  return format;
-}
-
-function formatNumber(n) {
-  n = n.toString();
-  return n[1] ? n : '0' + n;
-}
-
-/**
-   * 封封微信的的request
-   */
-function request(url) {var data = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};var method = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : "GET";var contentType = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : "application/json";
-  return new Promise(function (resolve, reject) {
-    uni.request({
-      url: url,
-      data: data,
-      method: method,
-      header: {
-        'Content-Type': contentType,
-        'X-Nideshop-Token': 'occdI48yqugW--4hmXy52CjfDsZo'
-        // 'X-Nideshop-Token': wx.getStorageSync('token')
-      },
-      success: function success(res) {
-        if (res.statusCode == 200) {
-
-          if (res.data.errno == 401) {
-            //需要登录后才可以操作
-            wx.showModal({
-              title: '',
-              content: '请先登录',
-              success: function success(res) {
-                if (res.confirm) {
-                  wx.removeStorageSync("userInfo");
-                  wx.removeStorageSync("token");
-                  wx.switchTab({
-                    url: '/pages/ucenter/index/index' });
-
-                }
-              } });
-
-          } else {
-            resolve(res.data);
-          }
-        } else {
-          reject(res.errMsg);
-        }
-
-      },
-      fail: function fail(err) {
-        reject(err);
-      } });
-
-  });
-}
-
-function getQueryString(url, name) {
-  var reg = new RegExp('(^|&|/?)' + name + '=([^&|/?]*)(&|/?|$)', 'i');
-  var r = url.substr(1).match(reg);
-  if (r != null) {
-    return r[2];
-  }
-  return null;
-}
-
-/**
-   * 检查微信会话是否过期
-   */
-function checkSession() {
-  return new Promise(function (resolve, reject) {
-    wx.checkSession({
-      success: function success() {
-        resolve(true);
-      },
-      fail: function fail() {
-        reject(false);
-      } });
-
-  });
-}
-
-/**
-   * 调用微信登录
-   */
-function login() {
-  return new Promise(function (resolve, reject) {
-    wx.login({
-      success: function success(res) {
-        if (res.code) {
-          //登录远程服务器
-          resolve(res);
-        } else {
-          reject(res);
-        }
-      },
-      fail: function fail(err) {
-        reject(err);
-      } });
-
-  });
-}
-
-function redirect(url) {
-
-  //判断页面是否需要登录
-  if (false) {} else {
-    wx.redirectTo({
-      url: url });
-
-  }
-}
-
-function showErrorToast(msg) {
-  wx.showToast({
-    title: msg,
-    image: '/static/images/icon_error.png' });
-
-}
-
-function showSuccessToast(msg) {
-  wx.showToast({
-    title: msg });
-
-}
-
-function accSub(arg1, arg2) {
-  var r1, r2, m, n;
-  try {
-    r1 = arg1.toString().split(".")[1].length;
-  } catch (e) {
-    r1 = 0;
-  }
-  try {
-    r2 = arg2.toString().split(".")[1].length;
-  } catch (e) {
-    r2 = 0;
-  }
-  m = Math.pow(10, Math.max(r1, r2)); //last modify by deeka //动态控制精度长度
-  n = r1 >= r2 ? r1 : r2;
-  return ((arg1 * m - arg2 * m) / m).toFixed(n);
-}
-
-module.exports = {
-  formatTime: formatTime,
-  nformatTime: nformatTime,
-  request: request,
-  redirect: redirect,
-  showErrorToast: showErrorToast,
-  showSuccessToast: showSuccessToast,
-  checkSession: checkSession,
-  login: login,
-  validatePhone: validatePhone,
-  getQueryString: getQueryString,
-  accSub: accSub };
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
-
-/***/ }),
-/* 18 */
-/*!************************************************!*\
-  !*** D:/HBuilderXProjects/store/config/api.js ***!
-  \************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-// var NewApiRootUrl = 'http://127.0.0.1:8088/yy-shop-api/api/'; 
-//var NewApiRootUrl = 'http://192.168.0.103:8080/yy-shop-api/api/';
-//var NewApiRootUrl = 'http://192.168.1.100:80/yy-shop-api/api/';
-//  var NewApiRootUrl = 'http://192.168.1.66:8080/yy-shop-api/api/';
-// var NewApiRootUrl = 'http://127.0.0.1:80/yy-shop-api/api/';
-//var NewApiRootUrl = 'http://haoyaoshop.api.hongyisoft.cn:8080/yy-shop-api/api/';
-// var NewApiRootUrl = 'http://dev.51shop.ink/demo/api/'
-// var NewApiRootUrl = 'https://fx.51shop.ink/drsshop/api/'
-var NewApiRootUrl = 'https://shop.beastiot.com/yy-shop-api/api/';
-module.exports = {
-  IndexUrlNewGoods: NewApiRootUrl + 'index/newGoods', //
-  IndexUrlHotGoods: NewApiRootUrl + 'index/hotGoods', //首页数据接口
-  IndexUrlTopic: NewApiRootUrl + 'index/topic', //首页数据接口
-  IndexUrlBrand: NewApiRootUrl + 'index/brand', //首页数据接口IndexUrlChannel
-  IndexUrlCategory: NewApiRootUrl + 'index/category', //首页数据接口IndexUrlChannel
-  IndexUrlBanner: NewApiRootUrl + 'index/banner', //首页数据接口IndexUrlChannel
-  IndexUrlChannel: NewApiRootUrl + 'index/channel', //首页数据接口IndexUrlChannel
-  IndexUrlSkill: NewApiRootUrl + 'index/secKill', //首页秒杀产品
-  CatalogList: NewApiRootUrl + 'catalog/index', //分类目录全部分类数据接口
-  CatalogCurrent: NewApiRootUrl + 'catalog/current', //分类目录当前分类数据接口
-
-  AuthLoginByWeixin: NewApiRootUrl + 'auth/loginByWeixin', //微信登录
-
-  GoodsCount: NewApiRootUrl + 'goods/count', //统计商品总数
-  GoodsList: NewApiRootUrl + 'goods/list', //获得商品列表
-  GoodsCategory: NewApiRootUrl + 'goods/category', //获得分类数据
-  GoodsDetail: NewApiRootUrl + 'goods/detail', //获得商品的详情
-  GoodsNew: NewApiRootUrl + 'goods/new', //新品
-  GoodsHot: NewApiRootUrl + 'goods/hot', //热门
-  GoodsRelated: NewApiRootUrl + 'goods/related', //商品详情页的关联商品（大家都在看）
-
-  BrandList: NewApiRootUrl + 'brand/list', //品牌列表
-  BrandDetail: NewApiRootUrl + 'brand/detail', //品牌详情
-
-  CartList: NewApiRootUrl + 'cart/index', //获取购物车的数据
-  CartAdd: NewApiRootUrl + 'cart/add', // 添加商品到购物车
-  BuyAdd: NewApiRootUrl + 'buy/add', // 直接购买
-  CartUpdate: NewApiRootUrl + 'cart/update', // 更新购物车的商品
-  CartDelete: NewApiRootUrl + 'cart/delete', // 删除购物车的商品
-  CartChecked: NewApiRootUrl + 'cart/checked', // 选择或取消选择商品
-  CartGoodsCount: NewApiRootUrl + 'cart/goodscount', // 获取购物车商品件数
-  CartCheckout: NewApiRootUrl + 'cart/checkout', // 下单前信息确认
-
-  BuyCheckout: NewApiRootUrl + 'buy/checkout', // 下单前信息确认
-
-  OrderSubmit: NewApiRootUrl + 'order/submit', // 提交订单
-  PayPrepayId: NewApiRootUrl + 'pay/prepay', //获取微信统一下单prepayId
-
-  CollectList: NewApiRootUrl + 'collect/list', //收藏列表
-  CollectAddOrDelete: NewApiRootUrl + 'collect/addordelete', //添加或取消收藏
-
-  CommentList: NewApiRootUrl + 'comment/list', //评论列表
-  CommentCount: NewApiRootUrl + 'comment/count', //评论总数
-  CommentPost: NewApiRootUrl + 'comment/post', //发表评论
-
-  TopicList: NewApiRootUrl + 'topic/list', //专题列表
-  TopicDetail: NewApiRootUrl + 'topic/detail', //专题详情
-  TopicRelated: NewApiRootUrl + 'topic/related', //相关专题
-
-  SearchIndex: NewApiRootUrl + 'search/index', //搜索页面数据
-  SearchResult: NewApiRootUrl + 'search/result', //搜索数据
-  SearchHelper: NewApiRootUrl + 'search/helper', //搜索帮助
-  SearchClearHistory: NewApiRootUrl + 'search/clearhistory', //搜索帮助
-
-  AddressList: NewApiRootUrl + 'address/addressUserlist', //收货地址列表
-  // AddressList: NewApiRootUrl + 'address/list',  //收货地址列表
-  AddressDetail: NewApiRootUrl + 'address/detail', //收货地址详情
-  AddressSave: NewApiRootUrl + 'address/save', //保存收货地址
-  AddressDelete: NewApiRootUrl + 'address/delete', //保存收货地址
-
-  RegionList: NewApiRootUrl + 'area/list', //获取区域列表
-
-  OrderList: NewApiRootUrl + 'order/list', //订单列表
-  OrderDetail: NewApiRootUrl + 'order/detail', //订单详情
-  OrderCancel: NewApiRootUrl + 'order/cancelOrder', //取消订单
-  OrderConfirm: NewApiRootUrl + 'order/confirmOrder', //确认收货
-
-  FootprintList: NewApiRootUrl + 'footprint/list', //足迹列表
-  FootprintDelete: NewApiRootUrl + 'footprint/delete', //删除足迹
-
-  FeedbackAdd: NewApiRootUrl + 'feedback/save', //添加反馈
-  SmsCode: NewApiRootUrl + 'sendRegisterCode', //发送短信
-  BindMobile: NewApiRootUrl + 'inviteReg', //fx注册
-  Login: NewApiRootUrl + 'auth/login', //账号登录
-  Register: NewApiRootUrl + 'auth/register', //注册
-  CouponList: NewApiRootUrl + 'coupon/list', // 优惠券列表
-  GoodsCouponList: NewApiRootUrl + 'coupon/listByGoods', // 商品优惠券列表   
-  OrderQuery: NewApiRootUrl + 'pay/query',
-  OrderSuccess: NewApiRootUrl + 'order/updateSuccess',
-  CustomerSave: NewApiRootUrl + 'customer/save.do', //新增客户
-  CustomerEdit: NewApiRootUrl + 'customer/update.do', //修改客户
-  CustomerList: NewApiRootUrl + 'customer/queryList.do', //客户列表查询分页
-  AllCustomerList: NewApiRootUrl + 'customer/queryAllList.do', //客户列表查询分页
-  UpkeepList: NewApiRootUrl + 'upkeep/queryUpkeepList.do', //客户管理列表
-  dgKeepList: NewApiRootUrl + 'upkeep/queryList.do', //单个用户的客户管理列
-  ServiceGoods: NewApiRootUrl + 'index/serviceGoods', //首页所有商品
-  QueryList: NewApiRootUrl + 'upkeep/queryList.do', //单个客户的维护列表
-  WhSave: NewApiRootUrl + 'upkeep/save.do', //维护历史保存
-  WhUpdate: NewApiRootUrl + 'upkeep/update.do', //维护历史修改
-  QueryObject: NewApiRootUrl + 'upkeep/queryObject.do', //
-  CustomerObject: NewApiRootUrl + 'customer/queryObject.do',
-  IsRealValidate: NewApiRootUrl + 'customer/realFlagValidate.do', //实名认证
-  BirthdayList: NewApiRootUrl + 'user/getBirthdayList', //生日列表
-  Holiday: NewApiRootUrl + 'user/getHoliday', //节假日提醒
-  CreateCode: NewApiRootUrl + 'auth/createCode',
-  UserInfoById: NewApiRootUrl + 'user/getUserInfoById.do', //获取实名认证信息
-  DtoLis: NewApiRootUrl + 'customer/queryDtoList.do', //获取客户信息
-  GetCount: NewApiRootUrl + 'customer/getCount.do', //获取客户统计
-  UpkeepUpdate: NewApiRootUrl + 'upkeep/update.do', //编辑维护历史,
-  CouponListByMer: NewApiRootUrl + 'coupon/listMer.do', //商户优惠卷
-  TakeMerCoupon: NewApiRootUrl + 'coupon/getMerCoupon.do', //商户优惠卷
-  ValidCouponList: NewApiRootUrl + 'coupon/getValidCouponList.do', //选择优惠卷列表
-  FansList: NewApiRootUrl + 'user/getSonUser', //我的粉丝
-  FUser: NewApiRootUrl + 'user/getFUser', //我的推荐人
-  Commission: NewApiRootUrl + 'user/getMlsUser', //佣金
-  InsShareGoods: NewApiRootUrl + 'user/insShareGoods', //新增分享历史
-  GetShareGoods: NewApiRootUrl + 'user/getShareGoods', //获取分享历史
-  WithdrawCashes: NewApiRootUrl + 'user/withdrawCashes', //提现
-  SetFid: NewApiRootUrl + 'mlsuser/setFid', //mlsuser/setFid
-  GroupList: NewApiRootUrl + 'goods/group.do', //团购
-  KillList: NewApiRootUrl + 'goods/kill.do', //秒杀
-  GroupBuyList: NewApiRootUrl + 'buy/getGroupBuyList.do' //团购列表
-};
-
 /***/ })
-]]);
+
+}]);
 //# sourceMappingURL=../../.sourcemap/mp-weixin/common/vendor.js.map

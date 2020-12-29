@@ -992,13 +992,13 @@
 		},
 		onShow() {
 			//此处看还有没有登陆信息，有点不想管这个
-			// let token = uni.getStorageSync('token');
-			// if (!token) {
-			// 	uni.redirectTo({
-			// 		url: '../customer/zcuslist/zcuslist?id=' + this.id + '&type=' + this.type
-			// 	})
-			// 	return false;
-			// }
+			let token = uni.getStorageSync('token');
+			if (!token) {
+				uni.redirectTo({
+					url: '../customer/zcuslist/zcuslist?id=' + this.id + '&type=' + this.type
+				})
+				return false;
+			}
 			this.getGoodsInfo();
 			this.cartGoodsCountMethod();
 			this.getCouponList();

@@ -227,6 +227,15 @@
 		     }
 		     
 		}
+        ,{
+            "path" : "pages/customer/zcuslist/zcuslist",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
     "globalStyle" : {
         "navigationBarTextStyle" : "black",

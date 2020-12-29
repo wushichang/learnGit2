@@ -26,7 +26,8 @@
     "pages/userCenter/collect/collect",
     "pages/userCenter/feedback/feedback",
     "pages/customer/whlist/whlist",
-    "pages/userCenter/footprint/footprint"
+    "pages/userCenter/footprint/footprint",
+    "pages/customer/zcuslist/zcuslist"
   ],
   "subPackages": [],
   "window": {
@@ -73,5 +74,6 @@
       }
     ]
   },
-  "usingComponents": {}
+  "usingComponents": {},
+  "sitemapLocation": "sitemap47.json"
 }
