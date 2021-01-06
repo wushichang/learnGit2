@@ -44,7 +44,7 @@
 				util.request(api.FootprintList, {
 					page: this.page
 				}).then((res)=> {
-					if (res.errno === 0) {
+					if (res.code === 0) {
 						console.log(res.data);
 
 						var oldfootprintList = this.footprintList;
@@ -98,7 +98,7 @@
 									footprintId: footprint.id
 								}).then((res)=> {
 									console.log(res);
-									if (res.errno === 0) {
+									if (res.code === 0) {
 										var nowidx = event.currentTarget.dataset.idx;
 										this.footprintList.splice(nowidx, 1);
 										//

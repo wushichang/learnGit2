@@ -68,7 +68,7 @@
 			},
 			getCartList() {
 				util.request(api.CartList).then((res) => {
-					if (res.errno === 0) {
+					if (res.code === 0) {
 						this.cartGoods = res.data.cartList;
 						this.cartTotal = res.data.cartTotal;
 					}
@@ -92,8 +92,8 @@
 					util.request(api.CartChecked, {
 						productIds: this.cartGoods[itemIndex].productId,
 						isChecked: this.cartGoods[itemIndex].checked ? 0 : 1
-					}, 'POST').then((res) => {
-						if (res.errno === 0) {
+					},  true ,"POST" , "application/json;charset=UTF-8").then((res) => {
+						if (res.code === 0) {
 							// console.log(res.data);
 							this.cartGoods = res.data.cartList;
 							this.cartTotal = res.data.cartTotal;
@@ -144,7 +144,7 @@
 					number: number,
 					id: id
 				}, 'POST').then((res) => {
-					if (res.errno === 0) {
+					if (res.code === 0) {
 						console.log(res.data);
 						//cartGoods: res.data.cartList,
 						//cartTotal: res.data.cartTotal
@@ -161,8 +161,8 @@
 					util.request(api.CartChecked, {
 						productIds: productIds.join(','),
 						isChecked: this.isCheckedAll() ? 0 : 1
-					}, 'POST').then((res) => {
-						if (res.errno === 0) {
+					},  true ,"POST" , "application/json;charset=UTF-8").then((res) => {
+						if (res.code === 0) {
 							// console.log(res.data);
 							this.cartGoods = res.data.cartList;
 							this.cartTotal = res.data.cartTotal;
@@ -221,8 +221,8 @@
 				});
 				util.request(api.CartDelete, {
 					productIds: productIds.join(',')
-				}, 'POST').then((res) => {
-					if (res.errno === 0) {
+				},  true ,"POST" , "application/json;charset=UTF-8").then((res) => {
+					if (res.code === 0) {
 						let cartList = res.data.cartList.map(v => {
 							v.checked = false;
 							return v;

@@ -31,7 +31,7 @@ function loginByWeixin(userInfo) {
       params.merchantId = wx.getStorageSync('merchantId') || 0;
       console.log('-----********---------', JSON.stringify(params))
       util.request(api.AuthLoginByWeixin, params, 'POST').then(res => {
-        if (res.errno === 0) { 
+        if (res.code === 0) { 
           //存储用户信息
           wx.setStorageSync('userInfo', userInfo);
           wx.setStorageSync('token', res.data.userVo.weixinOpenid);
@@ -76,7 +76,7 @@ function loginByWeixinForApp(userInfo,code) {
       params.merchantId = uni.getStorageSync('merchantId') || 0;
       console.log('-----********---------', JSON.stringify(params))
       util.request(api.AuthLoginByWeixin, params, 'POST').then(res => {
-        if (res.errno === 0) { 
+        if (res.code === 0) { 
           //存储用户信息
           uni.setStorageSync('userInfo', userInfo);
           uni.setStorageSync('token', res.data.userVo.weixinOpenid);

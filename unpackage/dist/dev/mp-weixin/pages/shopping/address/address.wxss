@@ -94,8 +94,7 @@ page {
 	height: 99rpx;
 	line-height: 99rpx;
 	position: fixed;
-	-webkit-border-radius: 0;
-	        border-radius: 0;
+	border-radius: 0;
 	border: none;
 	color: #fff;
 	font-size: 29rpx;

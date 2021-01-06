@@ -196,7 +196,7 @@ var api = __webpack_require__(/*! ../../config/api.js */ 18);var _default =
         valueId: this.valueId,
         typeId: this.typeId }).
       then(function (res) {
-        if (res.errno === 0) {
+        if (res.code === 0) {
           _this.allCount = res.data.allCount;
           _this.hasPicCount = res.data.hasPicCount;
         }
@@ -210,7 +210,7 @@ var api = __webpack_require__(/*! ../../config/api.js */ 18);var _default =
         page: this.showType == 0 ? this.allPage : this.picPage,
         showType: this.showType }).
       then(function (res) {
-        if (res.errno === 0) {
+        if (res.code === 0) {
           // this.comments=[];
           if (_this2.showType == 0) {
             _this2.allCommentList = _this2.allCommentList.concat(res.data.data);

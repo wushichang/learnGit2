@@ -35,7 +35,7 @@
 		methods: {
 			getWhList() {
 				util.request(api.FansList, {}, 'POST').then((res)=>{
-					if (res.errno === 0) {
+					if (res.code === 0) {
 						this.whList = res.data;
 						uni.hideLoading();
 					}

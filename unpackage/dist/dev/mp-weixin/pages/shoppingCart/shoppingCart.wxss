@@ -83,8 +83,7 @@ page {
 .to-index-btn {
 	color: #fff;
 	background: #e64340;
-	-webkit-border-radius: 6px;
-	        border-radius: 6px;
+	border-radius: 6px;
 	width: 300rpx;
 	height: auto;
 	line-height: 70rpx;

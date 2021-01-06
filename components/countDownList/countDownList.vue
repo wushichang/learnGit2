@@ -8,7 +8,7 @@
 			<text class='tui-conutdown-box tui-countdown-bg'>{{model.sec}}</text>
 		</view>
 		<view class='tui-countdown-content_n' v-if="ntype==1">
-			<label>限时秒杀</label>
+			<label class="label">限时秒杀</label>
 			<view class='timebox'>
 				<view class='timeinfo'>
 					<!-- <text class='tui-conutdown-box'>{{model.day}}</text>: -->
@@ -123,7 +123,7 @@
 		align-items: flex-end;
 	}
 
-	.tui-countdown-content_n label {
+	.tui-countdown-content_n .label {
 		width: 100%;
 		text-align: center;
 		margin-bottom: 6rpx;

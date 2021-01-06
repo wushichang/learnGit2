@@ -94,7 +94,7 @@
 				util.request(api.OrderDetail, {
 					orderId: this.orderId
 				}).then((res)=> {
-					if (res.errno === 0) {
+					if (res.code === 0) {
 						console.log(res.data);
 						this.orderInfo = res.data.orderInfo;
 						this.orderGoods = res.data.orderGoods;
@@ -173,8 +173,8 @@
 							util.request(api.OrderCancel, {
 								orderId: orderInfo.id
 							}).then((res)=> {
-								console.log(res.errno);
-								if (res.errno === 0) {
+								console.log(res.code);
+								if (res.code === 0) {
 									console.log(res.data);
 									uni.showModal({
 										title: '提示',
@@ -197,7 +197,7 @@
 				util.request(api.PayPrepayId, {
 					orderId: this.orderId || 15
 				}).then((res)=> {
-					if (res.errno === 0) {
+					if (res.code === 0) {
 						const payParam = res.data;
 						console.log('下单下单');
 						// wx.requestPayment({
@@ -282,8 +282,8 @@
 							util.request(api.OrderConfirm, {
 								orderId: orderInfo.id
 							}).then((res)=> {
-								console.log(res.errno);
-								if (res.errno === 0) {
+								console.log(res.code);
+								if (res.code === 0) {
 									console.log(res.data);
 									uni.showModal({
 										title: '提示',

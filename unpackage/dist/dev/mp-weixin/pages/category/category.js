@@ -170,7 +170,7 @@ var _top = _interopRequireDefault(__webpack_require__(/*! ../../components/cateG
 //
 //
 //
-var categoryContent = function categoryContent() {__webpack_require__.e(/*! require.ensure | components/cateGoryDetail/categoryContent/categoryContent */ "components/cateGoryDetail/categoryContent/categoryContent").then((function () {return resolve(__webpack_require__(/*! ../../components/cateGoryDetail/categoryContent/categoryContent.vue */ 332));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var noGoods = function noGoods() {__webpack_require__.e(/*! require.ensure | components/noGoods/noGoods */ "components/noGoods/noGoods").then((function () {return resolve(__webpack_require__(/*! ../../components/noGoods/noGoods.vue */ 327));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var util = __webpack_require__(/*! ../../util/util.js */ 17);var api = __webpack_require__(/*! ../../config/api.js */ 18);var _default = { components: { top: _top.default, categoryContent: categoryContent, noGoods: noGoods }, data: function data() {
+var categoryContent = function categoryContent() {__webpack_require__.e(/*! require.ensure | components/cateGoryDetail/categoryContent/categoryContent */ "components/cateGoryDetail/categoryContent/categoryContent").then((function () {return resolve(__webpack_require__(/*! ../../components/cateGoryDetail/categoryContent/categoryContent.vue */ 340));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var noGoods = function noGoods() {__webpack_require__.e(/*! require.ensure | components/noGoods/noGoods */ "components/noGoods/noGoods").then((function () {return resolve(__webpack_require__(/*! ../../components/noGoods/noGoods.vue */ 335));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var util = __webpack_require__(/*! ../../util/util.js */ 17);var api = __webpack_require__(/*! ../../config/api.js */ 18);var _default = { components: { top: _top.default, categoryContent: categoryContent, noGoods: noGoods }, data: function data() {
     return {
       goodsList: [], //商品列表、
       navList: [], //栏目列表
@@ -192,7 +192,7 @@ var categoryContent = function categoryContent() {__webpack_require__.e(/*! requ
       util.request(api.GoodsCategory, {
         id: this.categoryId }).
       then(function (res) {
-        if (res.errno == 0) {
+        if (res.code == 0) {
           _this.navList = res.data.brotherCategory;
           _this.currentCategory = res.data.currentCategory;
           //nav位置

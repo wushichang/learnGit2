@@ -43,8 +43,7 @@ page {
 	padding: 0 35rpx;
 	font-size: 26rpx;
 	background: none;
-	-webkit-border-radius: 30rpx;
-	        border-radius: 30rpx;
+	border-radius: 30rpx;
 	float: left;
 	margin-left: 15rpx;
 }

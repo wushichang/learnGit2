@@ -26,14 +26,15 @@
 			<view class="bottom-btn">
 				<!-- <button class="r" open-type="getUserInfo" @getuserinfo="getUserInfo">同意</button> -->
 				<button class="r" @click="getUserInfo">登陆</button>
+				<navigator open-type="navigate" url="../register/register" class="register">
+					去注册
+				</navigator>
 			</view>
 			<view class="bottom-new" v-if="id == -2">
 				<button class="r" @click='goUrl'>拒绝</button>
 			</view>
 		</view>
 	</view>
-
-
 
 </template>
 
@@ -78,10 +79,12 @@
 					util.request(api.LoginByMobile,{
 						mobile: this.mobile,
 						password: this.password
-					},"POST","application/x-www-form-urlencoded").then((res) => {
-						if (res.errno === 0) {
+					}).then((res) => {
+						if (res.code === 0) {
 							console.log('登陆结果',res);
 						}
+					}).catch((erro)=>{
+						util.showErrorToast('登陆失败');
 					});
 					
 				}
@@ -211,7 +214,10 @@
 		padding-left: 24rpx;
 	}
 	
-	
+	.register {
+		color: #007AFF;
+		text-align: center;
+	}
 	
 	
 </style>

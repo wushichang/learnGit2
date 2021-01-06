@@ -99,9 +99,28 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "recyclableRender", function() { return recyclableRender; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "components", function() { return components; });
-var components = {
-  search: function() {
-    return __webpack_require__.e(/*! import() | components/search/search */ "components/search/search").then(__webpack_require__.bind(null, /*! @/components/search/search.vue */ 236))
+var components
+try {
+  components = {
+    search: function() {
+      return __webpack_require__.e(/*! import() | components/search/search */ "components/search/search").then(__webpack_require__.bind(null, /*! @/components/search/search.vue */ 244))
+    }
+  }
+} catch (e) {
+  if (
+    e.message.indexOf("Cannot find module") !== -1 &&
+    e.message.indexOf(".vue") !== -1
+  ) {
+    console.error(e.message)
+    console.error("1. 排查组件名称拼写是否正确")
+    console.error(
+      "2. 排查组件是否符合 easycom 规范，文档：https://uniapp.dcloud.net.cn/collocation/pages?id=easycom"
+    )
+    console.error(
+      "3. 若组件不符合 easycom 规范，需手动引入，并在 components 中注册该组件"
+    )
+  } else {
+    throw e
   }
 }
 var render = function() {
@@ -169,7 +188,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 //
 
 var util = __webpack_require__(/*! ../../util/util.js */ 17);
-var api = __webpack_require__(/*! ../../config/api.js */ 18);var search = function search() {__webpack_require__.e(/*! require.ensure | components/search/search */ "components/search/search").then((function () {return resolve(__webpack_require__(/*! ../../components/search/search.vue */ 236));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var indexTypeData = function indexTypeData() {__webpack_require__.e(/*! require.ensure | components/indexTypeData/indexTypeData */ "components/indexTypeData/indexTypeData").then((function () {return resolve(__webpack_require__(/*! ../../components/indexTypeData/indexTypeData.vue */ 243));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var newGoods = function newGoods() {__webpack_require__.e(/*! require.ensure | components/displaySample/newGoods/newGoods */ "components/displaySample/newGoods/newGoods").then((function () {return resolve(__webpack_require__(/*! ../../components/displaySample/newGoods/newGoods.vue */ 250));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var hotGoods = function hotGoods() {__webpack_require__.e(/*! require.ensure | components/displaySample/hotGoods/hotGoods */ "components/displaySample/hotGoods/hotGoods").then((function () {return resolve(__webpack_require__(/*! ../../components/displaySample/hotGoods/hotGoods.vue */ 257));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var category = function category() {__webpack_require__.e(/*! require.ensure | components/displaySample/category/category */ "components/displaySample/category/category").then((function () {return resolve(__webpack_require__(/*! ../../components/displaySample/category/category.vue */ 264));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var specialTopic = function specialTopic() {__webpack_require__.e(/*! require.ensure | components/displaySample/specialTopic/specialTopic */ "components/displaySample/specialTopic/specialTopic").then((function () {return resolve(__webpack_require__(/*! ../../components/displaySample/specialTopic/specialTopic.vue */ 271));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+var api = __webpack_require__(/*! ../../config/api.js */ 18);var search = function search() {__webpack_require__.e(/*! require.ensure | components/search/search */ "components/search/search").then((function () {return resolve(__webpack_require__(/*! ../../components/search/search.vue */ 244));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var indexTypeData = function indexTypeData() {__webpack_require__.e(/*! require.ensure | components/indexTypeData/indexTypeData */ "components/indexTypeData/indexTypeData").then((function () {return resolve(__webpack_require__(/*! ../../components/indexTypeData/indexTypeData.vue */ 251));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var newGoods = function newGoods() {__webpack_require__.e(/*! require.ensure | components/displaySample/newGoods/newGoods */ "components/displaySample/newGoods/newGoods").then((function () {return resolve(__webpack_require__(/*! ../../components/displaySample/newGoods/newGoods.vue */ 258));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var hotGoods = function hotGoods() {__webpack_require__.e(/*! require.ensure | components/displaySample/hotGoods/hotGoods */ "components/displaySample/hotGoods/hotGoods").then((function () {return resolve(__webpack_require__(/*! ../../components/displaySample/hotGoods/hotGoods.vue */ 265));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var category = function category() {__webpack_require__.e(/*! require.ensure | components/displaySample/category/category */ "components/displaySample/category/category").then((function () {return resolve(__webpack_require__(/*! ../../components/displaySample/category/category.vue */ 272));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var specialTopic = function specialTopic() {__webpack_require__.e(/*! require.ensure | components/displaySample/specialTopic/specialTopic */ "components/displaySample/specialTopic/specialTopic").then((function () {return resolve(__webpack_require__(/*! ../../components/displaySample/specialTopic/specialTopic.vue */ 279));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 
 
@@ -201,7 +220,8 @@ var api = __webpack_require__(/*! ../../config/api.js */ 18);var search = functi
   methods: {
     getIndexUrlBanner: function getIndexUrlBanner() {var _this = this;
       util.request(api.IndexUrlBanner).then(function (res) {
-        if (res.errno === 0) {
+        if (res.code === 0) {
+          console.log('banner', res.data.banner);
           _this.banner = res.data.banner;
         }
       });
@@ -211,7 +231,7 @@ var api = __webpack_require__(/*! ../../config/api.js */ 18);var search = functi
         page: 1,
         size: 3 }).
       then(function (res) {
-        if (res.errno === 0) {
+        if (res.code === 0) {
           _this2.skill = res.data.data;
           console.log('skill', _this2.skill);
         }
@@ -224,7 +244,7 @@ var api = __webpack_require__(/*! ../../config/api.js */ 18);var search = functi
         page: 1,
         size: 3 }).
       then(function (res) {
-        if (res.errno === 0) {
+        if (res.code === 0) {
           _this3.group = res.data.data;
           console.log('group', _this3.group);
         }
@@ -232,28 +252,28 @@ var api = __webpack_require__(/*! ../../config/api.js */ 18);var search = functi
     },
     getNewGoodsList: function getNewGoodsList() {var _this4 = this;
       util.request(api.IndexUrlNewGoods).then(function (res) {
-        if (res.errno === 0) {
+        if (res.code === 0) {
           _this4.newGoodsList = res.data.newGoodsList;
         }
       });
     },
     getHotGoods: function getHotGoods() {var _this5 = this;
       util.request(api.IndexUrlHotGoods).then(function (res) {
-        if (res.errno === 0) {
+        if (res.code === 0) {
           _this5.hotGoodsList = res.data.hotGoodsList;
         }
       });
     },
     getCategoryList: function getCategoryList() {var _this6 = this;
       util.request(api.IndexUrlCategory).then(function (res) {
-        if (res.errno === 0) {
+        if (res.code === 0) {
           _this6.categoryList = res.data.categoryList;
         }
       });
     },
     getTopicList: function getTopicList() {var _this7 = this;
       util.request(api.IndexUrlTopic).then(function (res) {
-        if (res.errno === 0) {
+        if (res.code === 0) {
           _this7.topicList = res.data.topicList;
         }
       });

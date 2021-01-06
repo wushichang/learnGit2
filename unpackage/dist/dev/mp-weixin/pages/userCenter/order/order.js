@@ -250,7 +250,7 @@ var api = __webpack_require__(/*! ../../../config/api.js */ 18);var _default =
         order: this.currentSortOrder,
         sort: this.currentSortType }).
       then(function (res) {
-        if (res.errno === 0) {
+        if (res.code === 0) {
           _this.orderList = _this.orderList.concat(res.data.data);
           _this.page = res.data.currentPage + 1;
           _this.totalPages = res.data.totalPages;
@@ -292,8 +292,8 @@ var api = __webpack_require__(/*! ../../../config/api.js */ 18);var _default =
             util.request(api.OrderCancel, {
               orderId: order.id }).
             then(function (res) {
-              console.log(res.errno);
-              if (res.errno === 0) {
+              console.log(res.code);
+              if (res.code === 0) {
                 console.log(res.data);
                 uni.showModal({
                   title: '提示',
@@ -331,8 +331,8 @@ var api = __webpack_require__(/*! ../../../config/api.js */ 18);var _default =
             util.request(api.OrderConfirm, {
               orderId: order.id }).
             then(function (res) {
-              console.log(res.errno);
-              if (res.errno === 0) {
+              console.log(res.code);
+              if (res.code === 0) {
                 console.log(res.data);
                 uni.showModal({
                   title: '提示',

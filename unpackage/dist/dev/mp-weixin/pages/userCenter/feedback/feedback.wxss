@@ -117,8 +117,7 @@ page{
   position: fixed;
   bottom: 0;
   left: 0;
-  -webkit-border-radius: 0;
-          border-radius: 0;
+  border-radius: 0;
   color: #fff;
   font-size: 28rpx;
 }

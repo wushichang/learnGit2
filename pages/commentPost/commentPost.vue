@@ -42,7 +42,7 @@
 			      valueId: this.valueId,
 			      content: this.content
 			    }, 'POST').then((res)=> {
-			      if (res.errno === 0) {
+			      if (res.code === 0) {
 			        uni.showToast({
 			          title: '评论成功',
 			          complete: ()=>{

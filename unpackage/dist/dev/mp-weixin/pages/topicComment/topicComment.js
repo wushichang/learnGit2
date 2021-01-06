@@ -179,7 +179,7 @@ var util = __webpack_require__(/*! ../../util/util.js */ 17);var _default =
         page: this.showType == 0 ? this.allPage : this.picPage,
         showType: this.showType }).
       then(function (res) {
-        if (res.errno === 0) {
+        if (res.code === 0) {
           if (_this.showType == 0) {
             _this.allPage = res.data.currentPage;
             _this.comments = _this.comments.concat(res.data.data);
@@ -196,7 +196,7 @@ var util = __webpack_require__(/*! ../../util/util.js */ 17);var _default =
         valueId: this.valueId,
         typeId: this.typeId }).
       then(function (res) {
-        if (res.errno === 0) {
+        if (res.code === 0) {
           _this2.allCount = res.data.allCount;
           _this2.hasPicCount = res.data.hasPicCount;
         }

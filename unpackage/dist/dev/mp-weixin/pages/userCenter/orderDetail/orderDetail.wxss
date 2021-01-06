@@ -55,8 +55,7 @@ page {
 }
 .item-c .btn {
 	line-height: 66rpx;
-	-webkit-border-radius: 5rpx;
-	        border-radius: 5rpx;
+	border-radius: 5rpx;
 	text-align: center;
 	margin: 0 15rpx;
 	padding: 0 20rpx;
@@ -241,8 +240,7 @@ page {
 	padding: 0 35rpx;
 	font-size: 26rpx;
 	background: none;
-	-webkit-border-radius: 30rpx;
-	        border-radius: 30rpx;
+	border-radius: 30rpx;
 	float: right;
 	margin-left: 15rpx;
 }

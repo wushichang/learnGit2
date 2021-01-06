@@ -47,7 +47,7 @@
 					merchantId: merchantId,
 					goodsTotalPrice: goodsTotalPrice
 				}).then((res)=> {
-					if (res.errno === 0) {
+					if (res.code === 0) {
 						this.couponList = res.data;
 					}
 				});

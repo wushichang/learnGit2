@@ -46,7 +46,7 @@
 					typeId: 1,
 					size: 5
 				}).then((res) => {
-					if (res.errno === 0) {
+					if (res.code === 0) {
 						this.commentList = res.data.data;
 						this.commentCount = res.data.count;
 					}
@@ -58,7 +58,7 @@
 			util.request(api.TopicDetail, {
 				id: this.id
 			}).then((res) => {
-				if (res.errno === 0) {
+				if (res.code === 0) {
 					this.topic = res.data;
 					//res.data.content中有html数据，但是转化一直没有成功，不搞了，mmp
 					this.htmlVal = res.data.content.replace(/&lt;/g, '<').replace(/&gt;/g, '>');
@@ -68,7 +68,7 @@
 			util.request(api.TopicRelated, {
 				id: this.id
 			}).then((res) => {
-				if (res.errno === 0) {
+				if (res.code === 0) {
 					this.topicList = res.data;
 				}
 			});

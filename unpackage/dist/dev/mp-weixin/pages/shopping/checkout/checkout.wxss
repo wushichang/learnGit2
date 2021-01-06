@@ -43,8 +43,7 @@ page {
 	display: block;
 	width: 62rpx;
 	height: 33rpx;
-	-webkit-border-radius: 5rpx;
-	        border-radius: 5rpx;
+	border-radius: 5rpx;
 	border: 1px solid #b4282d;
 	font-size: 20.5rpx;
 	text-align: center;
@@ -309,8 +308,7 @@ page {
 }
 button {
 	border: 1px solid #b4282d;
-	-webkit-border-radius: 0;
-	        border-radius: 0;
+	border-radius: 0;
 	color: #fff;
 }
 

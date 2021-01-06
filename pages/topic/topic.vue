@@ -44,7 +44,7 @@
 					page: this.page,
 					size: this.size
 				}).then((res)=>{
-					if (res.errno === 0) {
+					if (res.code === 0) {
 						this.scrollTop = 0;
 						this.topicList = res.data.data;
 						this.showPage = true;

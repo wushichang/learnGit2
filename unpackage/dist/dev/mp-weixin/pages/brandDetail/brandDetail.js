@@ -185,7 +185,7 @@ var api = __webpack_require__(/*! ../../config/api.js */ 18);var _default =
       util.request(api.BrandDetail, {
         id: this.id }).
       then(function (res) {
-        if (res.errno === 0) {
+        if (res.code === 0) {
           _this.brand = res.data.brand;
           _this.getGoodsList();
         }
@@ -198,7 +198,7 @@ var api = __webpack_require__(/*! ../../config/api.js */ 18);var _default =
         size: this.size }).
 
       then(function (res) {
-        if (res.errno === 0) {
+        if (res.code === 0) {
           _this2.goodsList = res.data.goodsList;
         }
       });

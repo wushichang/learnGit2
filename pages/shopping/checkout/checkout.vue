@@ -136,7 +136,7 @@
 					type: buyType,
 					activityType: this.activityType
 				}).then((res)=> {
-					if (res.errno === 0) {
+					if (res.code === 0) {
 						for (var i = 0; i < res.data.checkedGoodsList.length; i++) {
 							var param = res.data.checkedGoodsList[i];
 							for (var j = 0; j < this.couponIdArr.length; j++) {
@@ -245,9 +245,9 @@
 				param.payType = this.type;
 				param.groupBuyingId = this.groupBuyingId;
 				console.log("{{}}}}}+++++======:", JSON.stringify(param))
-				util.request(api.OrderSubmit, param, 'POST').then(res => {
+				util.request(api.OrderSubmit, param, true ,"POST" , "application/json;charset=UTF-8").then(res => {
 					uni.hideLoading();
-					if (res.errno === 0) {
+					if (res.code === 0) {
 						const orderId = res.data.orderInfo.id;
 						console.log('下单了,下单了,思密达');
 						// pay.payOrder(orderId).then(res => {

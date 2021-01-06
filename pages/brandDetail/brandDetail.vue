@@ -53,7 +53,7 @@
 				util.request(api.BrandDetail, {
 					id: this.id
 				}).then((res)=> {
-					if (res.errno === 0) {
+					if (res.code === 0) {
 						this.brand = res.data.brand;
 						this.getGoodsList();
 					}
@@ -66,7 +66,7 @@
 						size: this.size
 					})
 					.then((res)=> {
-						if (res.errno === 0) {
+						if (res.code === 0) {
 							this.goodsList = res.data.goodsList;
 						}
 					});

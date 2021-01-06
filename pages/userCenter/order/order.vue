@@ -118,7 +118,7 @@
 					order: this.currentSortOrder,
 					sort: this.currentSortType
 				}).then((res)=> {
-					if (res.errno === 0) {
+					if (res.code === 0) {
 						this.orderList = this.orderList.concat(res.data.data);
 						this.page = res.data.currentPage + 1;
 						this.totalPages = res.data.totalPages;
@@ -160,8 +160,8 @@
 							util.request(api.OrderCancel, {
 								orderId: order.id
 							}).then((res)=> {
-								console.log(res.errno);
-								if (res.errno === 0) {
+								console.log(res.code);
+								if (res.code === 0) {
 									console.log(res.data);
 									uni.showModal({
 										title: '提示',
@@ -199,8 +199,8 @@
 							util.request(api.OrderConfirm, {
 								orderId: order.id
 							}).then((res)=> {
-								console.log(res.errno);
-								if (res.errno === 0) {
+								console.log(res.code);
+								if (res.code === 0) {
 									console.log(res.data);
 									uni.showModal({
 										title: '提示',

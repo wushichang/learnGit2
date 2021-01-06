@@ -55,8 +55,7 @@
 	width: 67rpx;
 	height: 67rpx;
 	margin-right: 17rpx;
-	-webkit-border-radius: 50%;
-	        border-radius: 50%;
+	border-radius: 50%;
 }
 .comments .user .nickname {
 	display: block;

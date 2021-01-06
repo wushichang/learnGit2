@@ -43,8 +43,7 @@
 	border: 1px solid #1A1A1A;
 	color: #1A1A1A;
 	font-size: 26rpx;
-	-webkit-border-radius: 30rpx;
-	        border-radius: 30rpx;
+	border-radius: 30rpx;
 	text-align: center;
 	margin-right: 20rpx;
 }
@@ -126,10 +125,8 @@
 	width: 60rpx;
 	height: 100%;
 	text-align: center;
-	-webkit-border-bottom-left-radius: 10rpx;
-	        border-bottom-left-radius: 10rpx;
-	-webkit-border-bottom-right-radius: 10rpx;
-	        border-bottom-right-radius: 10rpx;
+	border-bottom-left-radius: 10rpx;
+	border-bottom-right-radius: 10rpx;
 	background: #36b5fa;
 	color: #fff;
 	font-size: 10px;
@@ -171,12 +168,9 @@
 	background: #fc5a67;
 	color: #FFFFFF;
 	font-size: 12px;
-	-webkit-border-bottom-left-radius: 20rpx;
-	        border-bottom-left-radius: 20rpx;
-	-webkit-border-bottom-right-radius: 20rpx;
-	        border-bottom-right-radius: 20rpx;
-	-webkit-border-top-right-radius: 20rpx;
-	        border-top-right-radius: 20rpx;
+	border-bottom-left-radius: 20rpx;
+	border-bottom-right-radius: 20rpx;
+	border-top-right-radius: 20rpx;
 	text-align: center;
 }
 

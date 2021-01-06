@@ -236,6 +236,15 @@
             }
             
         }
+        ,{
+            "path" : "pages/customer/register/register",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
     "globalStyle" : {
         "navigationBarTextStyle" : "black",

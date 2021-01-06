@@ -5,25 +5,27 @@
   },
   "setting": {
     "urlCheck": false,
-    "minified": true
+    "minified": false
   },
   "compileType": "miniprogram",
   "libVersion": "",
-  "appid": "wx068fe1f6b541f6ae",
+  "appid": "wx8a13dc6d3acc7a0b",
   "projectname": "store",
-  "simulatorType": "wechat",
-  "simulatorPluginLibVersion": {},
   "condition": {
     "search": {
+      "current": -1,
       "list": []
     },
     "conversation": {
+      "current": -1,
       "list": []
     },
     "game": {
+      "current": -1,
       "list": []
     },
     "miniprogram": {
+      "current": -1,
       "list": []
     }
   }

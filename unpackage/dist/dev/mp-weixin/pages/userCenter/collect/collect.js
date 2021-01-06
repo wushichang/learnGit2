@@ -169,7 +169,7 @@ var api = __webpack_require__(/*! ../../../config/api.js */ 18);var _default =
       util.request(api.CollectList, {
         typeId: this.typeId }).
       then(function (res) {
-        if (res.errno === 0) {
+        if (res.code === 0) {
           console.log(res.data);
           _this.collectList = res.data;
         }
@@ -195,7 +195,7 @@ var api = __webpack_require__(/*! ../../../config/api.js */ 18);var _default =
                 typeId: _this2.typeId,
                 valueId: goodsId },
               'POST').then(function (res) {
-                if (res.errno === 0) {
+                if (res.code === 0) {
                   console.log(res.data);
                   uni.showToast({
                     title: '取消成功',

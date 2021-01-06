@@ -37,7 +37,7 @@
 				util.request(api.CollectList, {
 					typeId: this.typeId
 				}).then((res) => {
-					if (res.errno === 0) {
+					if (res.code === 0) {
 						console.log(res.data);
 						this.collectList = res.data;
 					}
@@ -63,7 +63,7 @@
 									typeId: this.typeId,
 									valueId: goodsId
 								}, 'POST').then((res) => {
-									if (res.errno === 0) {
+									if (res.code === 0) {
 										console.log(res.data);
 										uni.showToast({
 											title: '取消成功',

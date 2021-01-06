@@ -226,7 +226,7 @@ var api = __webpack_require__(/*! ../../../config/api.js */ 18);var _default =
       util.request(api.OrderDetail, {
         orderId: this.orderId }).
       then(function (res) {
-        if (res.errno === 0) {
+        if (res.code === 0) {
           console.log(res.data);
           _this.orderInfo = res.data.orderInfo;
           _this.orderGoods = res.data.orderGoods;
@@ -305,8 +305,8 @@ var api = __webpack_require__(/*! ../../../config/api.js */ 18);var _default =
             util.request(api.OrderCancel, {
               orderId: orderInfo.id }).
             then(function (res) {
-              console.log(res.errno);
-              if (res.errno === 0) {
+              console.log(res.code);
+              if (res.code === 0) {
                 console.log(res.data);
                 uni.showModal({
                   title: '提示',
@@ -329,7 +329,7 @@ var api = __webpack_require__(/*! ../../../config/api.js */ 18);var _default =
       util.request(api.PayPrepayId, {
         orderId: this.orderId || 15 }).
       then(function (res) {
-        if (res.errno === 0) {
+        if (res.code === 0) {
           var payParam = res.data;
           console.log('下单下单');
           // wx.requestPayment({
@@ -414,8 +414,8 @@ var api = __webpack_require__(/*! ../../../config/api.js */ 18);var _default =
             util.request(api.OrderConfirm, {
               orderId: orderInfo.id }).
             then(function (res) {
-              console.log(res.errno);
-              if (res.errno === 0) {
+              console.log(res.code);
+              if (res.code === 0) {
                 console.log(res.data);
                 uni.showModal({
                   title: '提示',

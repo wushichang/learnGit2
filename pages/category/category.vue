@@ -51,7 +51,7 @@
 				util.request(api.GoodsCategory, {
 					id: this.categoryId
 				}).then((res) => {
-					if (res.errno == 0) {
+					if (res.code == 0) {
 						this.navList = res.data.brotherCategory;
 						this.currentCategory = res.data.currentCategory;
 						//nav位置

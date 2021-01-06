@@ -170,7 +170,7 @@ var app = getApp();var _default =
   methods: {
     getAddressList: function getAddressList() {var _this = this;
       util.request(api.AddressList).then(function (res) {
-        if (res.errno === 0) {
+        if (res.code === 0) {
           _this.addressList = res.data;
         }
       });

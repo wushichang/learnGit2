@@ -440,7 +440,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 var util = __webpack_require__(/*! ../../util/util.js */ 17);
-var api = __webpack_require__(/*! ../../config/api.js */ 18);var countDownList = function countDownList() {__webpack_require__.e(/*! require.ensure | components/countDownList/countDownList */ "components/countDownList/countDownList").then((function () {return resolve(__webpack_require__(/*! ../../components/countDownList/countDownList.vue */ 339));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+var api = __webpack_require__(/*! ../../config/api.js */ 18);var countDownList = function countDownList() {__webpack_require__.e(/*! require.ensure | components/countDownList/countDownList */ "components/countDownList/countDownList").then((function () {return resolve(__webpack_require__(/*! ../../components/countDownList/countDownList.vue */ 347));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 
 
@@ -540,7 +540,7 @@ var api = __webpack_require__(/*! ../../config/api.js */ 18);var countDownList =
       util.request(api.CouponListByMer, {
         merchantId: this.goods.merchantId },
       "POST").then(function (res) {
-        if (res.errno === 0) {
+        if (res.code === 0) {
           _this.merCoupon = res.data;
           //console.log('couponList',this.merCoupon);
         }
@@ -549,8 +549,8 @@ var api = __webpack_require__(/*! ../../config/api.js */ 18);var countDownList =
     getGroupBuyList: function getGroupBuyList() {var _this2 = this;
       util.request(api.GroupBuyList, {
         goodsId: this.id },
-      "POST").then(function (res) {
-        if (res.errno === 0) {
+      true, "POST", "application/json;charset=UTF-8").then(function (res) {
+        if (res.code === 0) {
           var items = res.data.groupBuyingEntityList;
           var arr = [];
           var num = Math.ceil(items.length / 2);
@@ -584,7 +584,7 @@ var api = __webpack_require__(/*! ../../config/api.js */ 18);var countDownList =
       //console.log("------ffff:", JSON.stringify(param))
       util.request(api.InsShareGoods, param, "POST", 'application/x-www-form-urlencoded').then(function (res) {
         //console.log("------rrrrr:", res)
-        if (res.errno === 0) {
+        if (res.code === 0) {
           //console.log("------chenggong")
         }
       });
@@ -593,7 +593,7 @@ var api = __webpack_require__(/*! ../../config/api.js */ 18);var countDownList =
       util.request(api.TakeMerCoupon, {
         id: e.target.dataset.couponid },
       "POST").then(function (res) {
-        if (res.errno === 0) {
+        if (res.code === 0) {
           uni.showToast({
             title: '领取成功',
             icon: 'none',
@@ -612,7 +612,7 @@ var api = __webpack_require__(/*! ../../config/api.js */ 18);var countDownList =
       util.request(api.GoodsDetail, {
         id: this.id }).
       then(function (res) {
-        if (res.errno === 0) {
+        if (res.code === 0) {
           _this3.goods = res.data.info;
           _this3.gallery = res.data.gallery;
           // attribute: res.data.attribute,
@@ -642,7 +642,7 @@ var api = __webpack_require__(/*! ../../config/api.js */ 18);var countDownList =
       util.request(api.GoodsRelated, {
         id: this.id }).
       then(function (res) {
-        if (res.errno === 0) {
+        if (res.code === 0) {
           _this4.relatedGoods = res.data.goodsList;
         }
       });
@@ -824,7 +824,7 @@ var api = __webpack_require__(/*! ../../config/api.js */ 18);var countDownList =
     },
     cartGoodsCountMethod: function cartGoodsCountMethod() {var _this5 = this;
       util.request(api.CartGoodsCount).then(function (res) {
-        if (res.errno === 0) {
+        if (res.code === 0) {
           _this5.cartGoodsCount = res.data.cartTotal.goodsCount;
         }
       });
@@ -857,10 +857,10 @@ var api = __webpack_require__(/*! ../../config/api.js */ 18);var countDownList =
           name: this.goods.name,
           goodsBrief: this.goods.goodsBrief,
           retailPrice: this.goods.retailPrice },
-        "POST").
+        true, "POST", "application/json;charset=UTF-8").
         then(function (res) {
           var _res = res;
-          if (_res.errno == 0) {
+          if (_res.code == 0) {
             if (_res.data.type == 'add') {
               _this6.collectBackImage = _this6.hasCollectImage;
             } else {
@@ -936,10 +936,10 @@ var api = __webpack_require__(/*! ../../config/api.js */ 18);var countDownList =
           number: this.number,
           name: this.goods.name,
           productId: this.proId ? this.proId : this.productList[0].id },
-        "POST").then(function (res) {
+        true, "POST", "application/json;charset=UTF-8").then(function (res) {
           uni.hideLoading();
           var _res = res;
-          if (_res.errno == 0) {
+          if (_res.code == 0) {
             uni.openAttr = !_this7.openAttr;
             uni.navigateTo({
               url: '/pages/shopping/checkout/checkout?buyFlag=true&type=' + ntype + '&groupBuyingId=' + groupBuyingId +
@@ -1000,11 +1000,11 @@ var api = __webpack_require__(/*! ../../config/api.js */ 18);var countDownList =
           goodsId: this.goods.id,
           number: this.number,
           productId: this.proId ? this.proId : this.productList[0].id },
-        "POST").
+        true, "POST", "application/json;charset=UTF-8").
         then(function (res) {
           uni.hideLoading();
           var _res = res;
-          if (_res.errno == 0) {
+          if (_res.code == 0) {
             uni.showToast({
               title: '添加成功' });
 

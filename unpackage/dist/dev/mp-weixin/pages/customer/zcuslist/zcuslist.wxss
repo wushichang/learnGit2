@@ -83,12 +83,13 @@
 .userMsg_input {
 	width: 80%;
 	background-color: #ededed;
-	-webkit-border-radius: 24rpx;
-	        border-radius: 24rpx;
+	border-radius: 24rpx;
 	padding-left: 24rpx;
 }
-
-
+.register {
+	color: #007AFF;
+	text-align: center;
+}
 
 
 

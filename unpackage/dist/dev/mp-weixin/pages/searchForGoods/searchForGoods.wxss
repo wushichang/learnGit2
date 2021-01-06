@@ -33,8 +33,7 @@ page {
 	line-height: 59rpx;
 	padding: 0 20rpx;
 	background: #f4f4f4;
-	-webkit-border-radius: 30rpx;
-	        border-radius: 30rpx;
+	border-radius: 30rpx;
 }
 .iconsousuo {
 	font-size: 32rpx;

@@ -1,5 +1,5 @@
-// var NewApiRootUrl = 'http://127.0.0.1:8080/yy-shop-api/api/';
-var NewApiRootUrl = 'http://192.168.147.1:8080/yy-shop-api/api/';
+var NewApiRootUrl = 'http://127.0.0.1:8080/yy-shop-api/api/';
+// var NewApiRootUrl = 'http://192.168.147.1:8080/yy-shop-api/api/';
 //var NewApiRootUrl = 'http://192.168.1.100:80/yy-shop-api/api/';
 //  var NewApiRootUrl = 'http://192.168.1.66:8080/yy-shop-api/api/';
 // var NewApiRootUrl = 'http://127.0.0.1:80/yy-shop-api/api/';
@@ -120,6 +120,7 @@ module.exports = {
 	GroupList: NewApiRootUrl + 'goods/group.do', //团购
 	KillList: NewApiRootUrl + 'goods/kill.do', //秒杀
 	GroupBuyList: NewApiRootUrl + 'buy/getGroupBuyList.do', //团购列表
-	LoginByMobile: NewApiRootUrl + 'auth/login' //手机号登陆
-
+	LoginByMobile: NewApiRootUrl + 'auth/login', //手机号登陆
+	Register: NewApiRootUrl + 'auth/register' ,//注册  
+	SendSms: NewApiRootUrl + 'auth/sendSms' //获取验证码
 };

@@ -51,7 +51,7 @@
 					newFlag: this.newFlag
 				};
 				util.request(api.GoodsList, headParams).then((res)=>{
-					if (res.errno === 0) {
+					if (res.code === 0) {
 						this.goodsList = res.data.goodsList;
 						this.filterCategory = res.data.filterCategory;
 					}
@@ -73,7 +73,7 @@
 			},
 			getData() {
 				util.request(api.GoodsHot).then((res) => {
-					if (res.errno === 0) {
+					if (res.code === 0) {
 						console.log('getData');
 						this.bannerInfo = res.data.bannerInfo; //海报信息
 						this.getGoodsList(); //

@@ -169,6 +169,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 var app = getApp();
 var util = __webpack_require__(/*! ../../../util/util.js */ 17);
@@ -209,11 +210,13 @@ var user = __webpack_require__(/*! ../../../services/user.js */ 233);var _defaul
 
         util.request(api.LoginByMobile, {
           mobile: this.mobile,
-          password: this.password },
-        "POST", "application/x-www-form-urlencoded").then(function (res) {
-          if (res.errno === 0) {
+          password: this.password }).
+        then(function (res) {
+          if (res.code === 0) {
             console.log('登陆结果', res);
           }
+        }).catch(function (erro) {
+          util.showErrorToast('登陆失败');
         });
 
       }

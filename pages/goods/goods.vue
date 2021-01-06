@@ -385,7 +385,7 @@
 				util.request(api.CouponListByMer, {
 					merchantId: this.goods.merchantId
 				}, "POST").then((res) => {
-					if (res.errno === 0) {
+					if (res.code === 0) {
 						this.merCoupon = res.data;
 						//console.log('couponList',this.merCoupon);
 					}
@@ -394,8 +394,8 @@
 			getGroupBuyList() {
 				util.request(api.GroupBuyList, {
 					goodsId: this.id
-				}, "POST").then((res) => {
-					if (res.errno === 0) {
+				}, true ,"POST" , "application/json;charset=UTF-8").then((res) => {
+					if (res.code === 0) {
 						var items = res.data.groupBuyingEntityList;
 						var arr = [];
 						var num = Math.ceil(items.length / 2)
@@ -429,7 +429,7 @@
 				//console.log("------ffff:", JSON.stringify(param))
 				util.request(api.InsShareGoods, param, "POST", 'application/x-www-form-urlencoded').then((res) => {
 					//console.log("------rrrrr:", res)
-					if (res.errno === 0) {
+					if (res.code === 0) {
 						//console.log("------chenggong")
 					}
 				});
@@ -438,7 +438,7 @@
 				util.request(api.TakeMerCoupon, {
 					id: e.target.dataset.couponid
 				}, "POST").then((res) => {
-					if (res.errno === 0) {
+					if (res.code === 0) {
 						uni.showToast({
 							title: '领取成功',
 							icon: 'none',
@@ -457,7 +457,7 @@
 				util.request(api.GoodsDetail, {
 					id: this.id
 				}).then((res) => {
-					if (res.errno === 0) {
+					if (res.code === 0) {
 						this.goods = res.data.info;
 						this.gallery = res.data.gallery;
 						// attribute: res.data.attribute,
@@ -487,7 +487,7 @@
 				util.request(api.GoodsRelated, {
 					id: this.id
 				}).then((res) => {
-					if (res.errno === 0) {
+					if (res.code === 0) {
 						this.relatedGoods = res.data.goodsList;
 					}
 				});
@@ -669,7 +669,7 @@
 			},
 			cartGoodsCountMethod() {
 				util.request(api.CartGoodsCount).then((res) => {
-					if (res.errno === 0) {
+					if (res.code === 0) {
 						this.cartGoodsCount = res.data.cartTotal.goodsCount;
 					}
 				});
@@ -702,10 +702,10 @@
 							name: this.goods.name,
 							goodsBrief: this.goods.goodsBrief,
 							retailPrice: this.goods.retailPrice
-						}, "POST")
+						}, true ,"POST" , "application/json;charset=UTF-8")
 						.then((res) => {
 							let _res = res;
-							if (_res.errno == 0) {
+							if (_res.code == 0) {
 								if (_res.data.type == 'add') {
 									this.collectBackImage = this.hasCollectImage;
 								} else {
@@ -781,10 +781,10 @@
 						number: this.number,
 						name: this.goods.name,
 						productId: this.proId ? this.proId : this.productList[0].id
-					}, "POST").then((res) => {
+					}, true ,"POST" , "application/json;charset=UTF-8").then((res) => {
 						uni.hideLoading();
 						let _res = res;
-						if (_res.errno == 0) {
+						if (_res.code == 0) {
 							uni.openAttr = !this.openAttr;
 							uni.navigateTo({
 								url: '/pages/shopping/checkout/checkout?buyFlag=true&type=' + ntype + '&groupBuyingId=' + groupBuyingId +
@@ -815,7 +815,7 @@
 					})
 					uni.setStorageSync('isYJ', this.isYJ);
 					//提示选择完整规格
-					if (!this.isCheckedAllSpec()) {
+					if (!this.isCheckedAllSpec()) { 
 						uni.showToast({
 							title: '请选择完整规格'
 						});
@@ -845,11 +845,11 @@
 							goodsId: this.goods.id,
 							number: this.number,
 							productId: this.proId ? this.proId : this.productList[0].id
-						}, "POST")
+						}, true ,"POST" , "application/json;charset=UTF-8")
 						.then((res) => {
 							uni.hideLoading();
 							let _res = res;
-							if (_res.errno == 0) {
+							if (_res.code == 0) {
 								uni.showToast({
 									title: '添加成功'
 								});

@@ -47,7 +47,7 @@
 					page: (this.showType == 0 ? this.allPage : this.picPage),
 					showType: this.showType
 				}).then((res) => {
-					if (res.errno === 0) {
+					if (res.code === 0) {
 						if (this.showType == 0) {
 							this.allPage = res.data.currentPage;
 							this.comments = this.comments.concat(res.data.data);
@@ -64,7 +64,7 @@
 					valueId: this.valueId,
 					typeId: this.typeId
 				}).then((res) => {
-					if (res.errno === 0) {
+					if (res.code === 0) {
 						this.allCount = res.data.allCount;
 						this.hasPicCount = res.data.hasPicCount;
 					}

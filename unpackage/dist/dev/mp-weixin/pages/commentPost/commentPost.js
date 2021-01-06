@@ -174,7 +174,7 @@ var util = __webpack_require__(/*! ../../util/util.js */ 17);var _default =
         valueId: this.valueId,
         content: this.content },
       'POST').then(function (res) {
-        if (res.errno === 0) {
+        if (res.code === 0) {
           uni.showToast({
             title: '评论成功',
             complete: function complete() {

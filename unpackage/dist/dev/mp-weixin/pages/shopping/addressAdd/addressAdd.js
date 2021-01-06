@@ -375,7 +375,7 @@ var api = __webpack_require__(/*! ../../../config/api.js */ 18);var _default =
       util.request(api.RegionList, {
         parentId: areaId }).
       then(function (res) {
-        if (res.errno === 0) {
+        if (res.code === 0) {
           console.log('res.data', res.data);
           _this3.areaList = res.data.map(function (item) {
 
@@ -439,8 +439,8 @@ var api = __webpack_require__(/*! ../../../config/api.js */ 18);var _default =
         cityName: address.city_name,
         areaName: address.area_name,
         detailInfo: address.detailInfo },
-      'POST').then(function (res) {
-        if (res.errno === 0) {
+      true, "POST", "application/json;charset=UTF-8").then(function (res) {
+        if (res.code === 0) {
           uni.navigateBack({
             url: '/pages/shopping/address/address' });
 

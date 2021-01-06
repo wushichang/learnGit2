@@ -60,7 +60,8 @@
 		methods: {
 			getIndexUrlBanner() {
 				util.request(api.IndexUrlBanner).then((res) => {
-					if (res.errno === 0) {
+					if (res.code === 0) {
+						console.log('banner',res.data.banner);
 						this.banner = res.data.banner;
 					}
 				});
@@ -70,7 +71,7 @@
 					page: 1,
 					size: 3
 				}).then((res)=>{
-					if (res.errno === 0) {
+					if (res.code === 0) {
 						this.skill = res.data.data;
 						console.log('skill',this.skill);
 					}
@@ -83,7 +84,7 @@
 					page: 1,
 					size: 3
 				}).then((res)=>{
-					if (res.errno === 0) {
+					if (res.code === 0) {
 						this.group = res.data.data;
 						console.log('group',this.group);
 					}
@@ -91,28 +92,28 @@
 			},
 			getNewGoodsList() {
 				util.request(api.IndexUrlNewGoods).then((res) => {
-					if (res.errno === 0) {
+					if (res.code === 0) {
 						this.newGoodsList = res.data.newGoodsList
 					}
 				});
 			},
 			getHotGoods() {
 				util.request(api.IndexUrlHotGoods).then((res) => {
-					if (res.errno === 0) {
+					if (res.code === 0) {
 						this.hotGoodsList = res.data.hotGoodsList;
 					}
 				});
 			},
 			getCategoryList() {
 				util.request(api.IndexUrlCategory).then((res) => {
-					if (res.errno === 0) {
+					if (res.code === 0) {
 						this.categoryList = res.data.categoryList;
 					}
 				});
 			},
 			getTopicList() {
 				util.request(api.IndexUrlTopic).then((res) => {
-					if (res.errno === 0) {
+					if (res.code === 0) {
 						this.topicList = res.data.topicList;
 					}
 				})

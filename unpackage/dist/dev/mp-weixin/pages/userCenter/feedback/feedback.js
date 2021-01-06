@@ -209,7 +209,7 @@ var api = __webpack_require__(/*! ../../../config/api.js */ 18);var _default =
 
 
       util.request(api.FeedbackAdd, { mobile: this.mobile, index: this.index, content: this.content }, 'POST').then(function (res) {
-        if (res.errno === 0) {
+        if (res.code === 0) {
           console.log(res.data);
 
           uni.hideLoading();

@@ -167,7 +167,7 @@ var api = __webpack_require__(/*! ../../../config/api.js */ 18);var _default =
   methods: {
     getWhList: function getWhList() {var _this = this;
       util.request(api.FansList, {}, 'POST').then(function (res) {
-        if (res.errno === 0) {
+        if (res.code === 0) {
           _this.whList = res.data;
           uni.hideLoading();
         }

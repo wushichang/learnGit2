@@ -7,8 +7,7 @@
     height: 100%;
     padding: 0 30rpx 0 30rpx;
 	/* 拆分成组建后，padding显示有问题，就加了这个 */
-	-webkit-box-sizing: border-box;
-	        box-sizing: border-box;
+	box-sizing: border-box;
 }
 .banner {
     display: block;
@@ -20,8 +19,7 @@
     position: absolute;
     top: 30rpx;
     left: 0;
-    -webkit-border-radius: 4rpx;
-            border-radius: 4rpx;
+    border-radius: 4rpx;
     height: 192rpx;
     width: 100%;
 }
@@ -40,8 +38,7 @@
     position: absolute;
     top: 30rpx;
     left: 0;
-    -webkit-border-radius: 4rpx;
-            border-radius: 4rpx;
+    border-radius: 4rpx;
     height: 192rpx;
     width: 100%;
 }

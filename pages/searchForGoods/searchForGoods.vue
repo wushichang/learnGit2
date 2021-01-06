@@ -103,7 +103,7 @@
 			},
 			getSearchKeyword() {
 				util.request(api.SearchIndex).then((res) => {
-					if (res.errno === 0) {
+					if (res.code === 0) {
 						this.historyKeyword = res.data.historyKeywordList;
 						//万万没想到，后台返回的defaultKeyword是空对象
 						this.defaultKeyword = res.data.defaultKeyword || {};
@@ -130,7 +130,7 @@
 				util.request(api.SearchHelper, {
 					keyword: this.keyword
 				}).then((res) => {
-					if (res.errno === 0) {
+					if (res.code === 0) {
 						this.helpKeyword = res.data;
 					}
 				});
@@ -154,7 +154,7 @@
 					categoryId: this.categoryId
 				};
 				util.request(api.GoodsList, parameters).then((res) => {
-					if (res.errno === 0) {
+					if (res.code === 0) {
 						// console.log('获取商品信息', res);
 						this.searchStatus = true;
 						this.categoryFilter = false;

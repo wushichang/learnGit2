@@ -162,8 +162,7 @@ image,._img {
 	border: 1px solid #f48f18;
 	font-size: 25rpx;
 	color: #f48f18;
-	-webkit-border-radius: 4px;
-	        border-radius: 4px;
+	border-radius: 4px;
 	background: url(http://shop.beastiot.com/haoyaoshopvf/icon/detailTagArrow-18bee52dab.png) 95% center no-repeat;
 	background-size: 10.75rpx 18.75rpx;
 }
@@ -224,8 +223,7 @@ image,._img {
 	-webkit-align-items: center;
 	        align-items: center;
 	padding: 0 10rpx;
-	-webkit-border-radius: 3px;
-	        border-radius: 3px;
+	border-radius: 3px;
 	height: 37rpx;
 	width: auto;
 	color: #f48f18;
@@ -293,8 +291,7 @@ image,._img {
 .groupBox .ptlist .proli .left image {
 	height: 120rpx;
 	width: 120rpx;
-	-webkit-border-radius: 50%;
-	        border-radius: 50%;
+	border-radius: 50%;
 	background: #ccc;
 	margin-right: 20rpx;
 }
@@ -341,8 +338,7 @@ image,._img {
 	height: 60rpx;
 	line-height: 60rpx;
 	text-align: center;
-	-webkit-border-radius: 10rpx;
-	        border-radius: 10rpx;
+	border-radius: 10rpx;
 }
 .comments {
 	width: 100%;
@@ -400,8 +396,7 @@ image,._img {
 	width: 67rpx;
 	height: 67rpx;
 	margin-right: 17rpx;
-	-webkit-border-radius: 50%;
-	        border-radius: 50%;
+	border-radius: 50%;
 }
 .comments .user text {
 	display: inline-block;
@@ -551,8 +546,7 @@ image,._img {
 	height: 8rpx;
 	width: 8rpx;
 	background: #b4282d;
-	-webkit-border-radius: 50%;
-	        border-radius: 50%;
+	border-radius: 50%;
 	margin-top: 11rpx;
 }
 .common-problem .question-box .question {
@@ -711,8 +705,7 @@ image,._img {
 	font-size: 18rpx;
 	color: #fff;
 	line-height: 28rpx;
-	-webkit-border-radius: 50%;
-	        border-radius: 50%;
+	border-radius: 50%;
 }
 .bottom-btn .l.l-cart .icon {
 
@@ -819,8 +812,7 @@ image,._img {
 	margin-bottom: 16.5rpx;
 	border: 1px solid #ccc;
 	font-size: 25rpx;
-	-webkit-border-radius: 10rpx;
-	        border-radius: 10rpx;
+	border-radius: 10rpx;
 }
 .spec-con .value.disable {
 	border: 1px solid #ccc;
@@ -953,8 +945,7 @@ image,._img {
 	text-align: center;
 	line-height: 70rpx;
 	background: #fff;
-	-webkit-border-radius: 35rpx;
-	        border-radius: 35rpx;
+	border-radius: 35rpx;
 	margin: 0 0 22rpx 22rpx;
 }
 .city_first_letter {
@@ -977,8 +968,7 @@ image,._img {
 button {
 	background: #fff;
 	border: none;
-	-webkit-border-radius: 0;
-	        border-radius: 0;
+	border-radius: 0;
 	font-size: 14px;
 }
 .coupon,
@@ -1102,8 +1092,7 @@ button {
 	height: 800rpx;
 	background: #fff;
 	z-index: 100;
-	-webkit-border-radius: 20rpx;
-	        border-radius: 20rpx;
+	border-radius: 20rpx;
 }
 .groupInfo_n {
 	width: 650rpx;
@@ -1121,8 +1110,7 @@ button {
 	-webkit-box-align: center;
 	-webkit-align-items: center;
 	        align-items: center;
-	-webkit-border-radius: 20rpx;
-	        border-radius: 20rpx;
+	border-radius: 20rpx;
 }
 .proli {
 	padding: 0 20rpx;
@@ -1160,8 +1148,7 @@ button {
 .proli .left image {
 	height: 100rpx;
 	width: 100rpx;
-	-webkit-border-radius: 50%;
-	        border-radius: 50%;
+	border-radius: 50%;
 	background: #ccc;
 	margin-right: 20rpx;
 }
@@ -1211,8 +1198,7 @@ button {
 	height: 50rpx;
 	line-height: 50rpx;
 	text-align: center;
-	-webkit-border-radius: 10rpx;
-	        border-radius: 10rpx;
+	border-radius: 10rpx;
 }
 .partInfo {
 	position: fixed;
@@ -1222,8 +1208,7 @@ button {
 	min-height: 400rpx;
 	background: #fff;
 	z-index: 100;
-	-webkit-border-radius: 20rpx;
-	        border-radius: 20rpx;
+	border-radius: 20rpx;
 }
 .partInfo label {
 	height: 80rpx;
@@ -1277,21 +1262,18 @@ button {
 	top: 0;
 	left: 0;
 	text-align: center;
-	-webkit-border-radius: 30rpx;
-	        border-radius: 30rpx;
+	border-radius: 30rpx;
 	font-size: 10px;
 }
 .partInfo .b .img image {
 	height: 90rpx;
 	width: 90rpx;
-	-webkit-border-radius: 50%;
-	        border-radius: 50%;
+	border-radius: 50%;
 }
 .partInfo .b .n {
 	height: 90rpx;
 	width: 90rpx;
-	-webkit-border-radius: 50%;
-	        border-radius: 50%;
+	border-radius: 50%;
 	margin-left: 30rpx;
 	line-height: 90rpx;
 	text-align: center;
@@ -1309,8 +1291,7 @@ button {
 	margin: 0 auto;
 	background: #b4282d;
 	color: #fff;
-	-webkit-border-radius: 20rpx;
-	        border-radius: 20rpx;
+	border-radius: 20rpx;
 }
 
 /*禁用属性*/

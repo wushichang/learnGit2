@@ -92,9 +92,28 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "recyclableRender", function() { return recyclableRender; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "components", function() { return components; });
-var components = {
-  comments: function() {
-    return __webpack_require__.e(/*! import() | components/comments/comments */ "components/comments/comments").then(__webpack_require__.bind(null, /*! @/components/comments/comments.vue */ 313))
+var components
+try {
+  components = {
+    comments: function() {
+      return __webpack_require__.e(/*! import() | components/comments/comments */ "components/comments/comments").then(__webpack_require__.bind(null, /*! @/components/comments/comments.vue */ 321))
+    }
+  }
+} catch (e) {
+  if (
+    e.message.indexOf("Cannot find module") !== -1 &&
+    e.message.indexOf(".vue") !== -1
+  ) {
+    console.error(e.message)
+    console.error("1. 排查组件名称拼写是否正确")
+    console.error(
+      "2. 排查组件是否符合 easycom 规范，文档：https://uniapp.dcloud.net.cn/collocation/pages?id=easycom"
+    )
+    console.error(
+      "3. 若组件不符合 easycom 规范，需手动引入，并在 components 中注册该组件"
+    )
+  } else {
+    throw e
   }
 }
 var render = function() {
@@ -134,7 +153,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var comments = function comments() {__webpack_require__.e(/*! require.ensure | components/comments/comments */ "components/comments/comments").then((function () {return resolve(__webpack_require__(/*! ../../components/comments/comments.vue */ 313));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var comments = function comments() {__webpack_require__.e(/*! require.ensure | components/comments/comments */ "components/comments/comments").then((function () {return resolve(__webpack_require__(/*! ../../components/comments/comments.vue */ 321));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
 
 
 
@@ -182,7 +201,7 @@ var util = __webpack_require__(/*! ../../util/util.js */ 17);var _default =
         typeId: 1,
         size: 5 }).
       then(function (res) {
-        if (res.errno === 0) {
+        if (res.code === 0) {
           _this.commentList = res.data.data;
           _this.commentCount = res.data.count;
         }
@@ -194,7 +213,7 @@ var util = __webpack_require__(/*! ../../util/util.js */ 17);var _default =
     util.request(api.TopicDetail, {
       id: this.id }).
     then(function (res) {
-      if (res.errno === 0) {
+      if (res.code === 0) {
         _this2.topic = res.data;
         //res.data.content中有html数据，但是转化一直没有成功，不搞了，mmp
         _this2.htmlVal = res.data.content.replace(/&lt;/g, '<').replace(/&gt;/g, '>');
@@ -204,7 +223,7 @@ var util = __webpack_require__(/*! ../../util/util.js */ 17);var _default =
     util.request(api.TopicRelated, {
       id: this.id }).
     then(function (res) {
-      if (res.errno === 0) {
+      if (res.code === 0) {
         _this2.topicList = res.data;
       }
     });

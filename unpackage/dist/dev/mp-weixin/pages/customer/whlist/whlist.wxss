@@ -87,8 +87,7 @@
 	line-height: 59rpx;
 	padding: 0 20rpx;
 	background: #f4f4f4;
-	-webkit-border-radius: 8rpx;
-	        border-radius: 8rpx;
+	border-radius: 8rpx;
 }
 .search-header .icon {
 	position: absolute;
@@ -217,8 +216,7 @@
 .cusli image {
 	width: 80rpx;
 	height: 80rpx;
-	-webkit-border-radius: 50%;
-	        border-radius: 50%;
+	border-radius: 50%;
 }
 .cusli .li {
 	height: 80rpx;
@@ -238,8 +236,7 @@
 	width: 660rpx;
 	height: 80rpx;
 	line-height: 80rpx;
-	-webkit-box-shadow: 0 2px 2px #cacaca;
-	        box-shadow: 0 2px 2px #cacaca;
+	box-shadow: 0 2px 2px #cacaca;
 	margin-left: 7rpx;
 }
 .cusinfo .li {
@@ -252,8 +249,7 @@
 	line-height: 59rpx;
 	padding: 0 20rpx;
 	margin-left: 20rpx;
-	-webkit-border-radius: 8rpx;
-	        border-radius: 8rpx;
+	border-radius: 8rpx;
 }
 .mleft {
 	/* margin-left: 30rpx; */

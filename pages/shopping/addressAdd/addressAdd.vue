@@ -243,7 +243,7 @@
 				util.request(api.RegionList, {
 					parentId: areaId
 				}).then((res) => {
-					if (res.errno === 0) {
+					if (res.code === 0) {
 						console.log('res.data',res.data);
 						this.areaList = res.data.map(item => {
 
@@ -307,8 +307,8 @@
 					cityName: address.city_name,
 					areaName: address.area_name,
 					detailInfo: address.detailInfo,
-				}, 'POST').then((res) => {
-					if (res.errno === 0) {
+				}, true ,"POST" , "application/json;charset=UTF-8").then((res) => {
+					if (res.code === 0) {
 						uni.navigateBack({
 							url: '/pages/shopping/address/address',
 						})

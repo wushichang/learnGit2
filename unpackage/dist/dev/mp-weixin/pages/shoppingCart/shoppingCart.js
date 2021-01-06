@@ -200,7 +200,7 @@ var api = __webpack_require__(/*! ../../config/api.js */ 18);var _default =
     },
     getCartList: function getCartList() {var _this = this;
       util.request(api.CartList).then(function (res) {
-        if (res.errno === 0) {
+        if (res.code === 0) {
           _this.cartGoods = res.data.cartList;
           _this.cartTotal = res.data.cartTotal;
         }
@@ -224,8 +224,8 @@ var api = __webpack_require__(/*! ../../config/api.js */ 18);var _default =
         util.request(api.CartChecked, {
           productIds: this.cartGoods[itemIndex].productId,
           isChecked: this.cartGoods[itemIndex].checked ? 0 : 1 },
-        'POST').then(function (res) {
-          if (res.errno === 0) {
+        true, "POST", "application/json;charset=UTF-8").then(function (res) {
+          if (res.code === 0) {
             // console.log(res.data);
             _this2.cartGoods = res.data.cartList;
             _this2.cartTotal = res.data.cartTotal;
@@ -276,7 +276,7 @@ var api = __webpack_require__(/*! ../../config/api.js */ 18);var _default =
         number: number,
         id: id },
       'POST').then(function (res) {
-        if (res.errno === 0) {
+        if (res.code === 0) {
           console.log(res.data);
           //cartGoods: res.data.cartList,
           //cartTotal: res.data.cartTotal
@@ -293,8 +293,8 @@ var api = __webpack_require__(/*! ../../config/api.js */ 18);var _default =
         util.request(api.CartChecked, {
           productIds: productIds.join(','),
           isChecked: this.isCheckedAll() ? 0 : 1 },
-        'POST').then(function (res) {
-          if (res.errno === 0) {
+        true, "POST", "application/json;charset=UTF-8").then(function (res) {
+          if (res.code === 0) {
             // console.log(res.data);
             _this4.cartGoods = res.data.cartList;
             _this4.cartTotal = res.data.cartTotal;
@@ -353,8 +353,8 @@ var api = __webpack_require__(/*! ../../config/api.js */ 18);var _default =
       });
       util.request(api.CartDelete, {
         productIds: productIds.join(',') },
-      'POST').then(function (res) {
-        if (res.errno === 0) {
+      true, "POST", "application/json;charset=UTF-8").then(function (res) {
+        if (res.code === 0) {
           var cartList = res.data.cartList.map(function (v) {
             v.checked = false;
             return v;

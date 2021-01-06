@@ -130,7 +130,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var productPost = function productPost() {__webpack_require__.e(/*! require.ensure | components/productPost/productPost */ "components/productPost/productPost").then((function () {return resolve(__webpack_require__(/*! ../../components/productPost/productPost.vue */ 320));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var productDisplay = function productDisplay() {__webpack_require__.e(/*! require.ensure | components/productDisplay/productDisplay */ "components/productDisplay/productDisplay").then((function () {return resolve(__webpack_require__(/*! ../../components/productDisplay/productDisplay.vue */ 292));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var productPost = function productPost() {__webpack_require__.e(/*! require.ensure | components/productPost/productPost */ "components/productPost/productPost").then((function () {return resolve(__webpack_require__(/*! ../../components/productPost/productPost.vue */ 328));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var productDisplay = function productDisplay() {__webpack_require__.e(/*! require.ensure | components/productDisplay/productDisplay */ "components/productDisplay/productDisplay").then((function () {return resolve(__webpack_require__(/*! ../../components/productDisplay/productDisplay.vue */ 300));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
 
 
 
@@ -180,7 +180,7 @@ var api = __webpack_require__(/*! ../../config/api.js */ 18);var _default =
         hotFlag: this.hotFlag };
 
       util.request(api.GoodsList, headParams).then(function (res) {
-        if (res.errno === 0) {
+        if (res.code === 0) {
           _this.goodsList = res.data.goodsList;
           _this.filterCategory = res.data.filterCategory;
         }
@@ -202,7 +202,7 @@ var api = __webpack_require__(/*! ../../config/api.js */ 18);var _default =
     },
     getData: function getData() {var _this2 = this;
       util.request(api.GoodsHot).then(function (res) {
-        if (res.errno === 0) {
+        if (res.code === 0) {
           console.log('getData');
           _this2.bannerInfo = res.data.bannerInfo; //海报信息
           _this2.getGoodsList(); //

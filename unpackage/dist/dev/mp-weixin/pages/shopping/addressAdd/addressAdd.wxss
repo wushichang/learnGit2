@@ -73,8 +73,7 @@ page {
 	font-size: 28rpx;
 	color: #fff;
 	border: none;
-	-webkit-border-radius: 0;
-	        border-radius: 0;
+	border-radius: 0;
 }
 .add-address .cannel {
 	background: #cacaca;

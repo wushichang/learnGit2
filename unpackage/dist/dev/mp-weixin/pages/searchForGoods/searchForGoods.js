@@ -189,7 +189,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 var util = __webpack_require__(/*! ../../util/util */ 17);
-var api = __webpack_require__(/*! ../../config/api.js */ 18);var productDisplay = function productDisplay() {__webpack_require__.e(/*! require.ensure | components/productDisplay/productDisplay */ "components/productDisplay/productDisplay").then((function () {return resolve(__webpack_require__(/*! ../../components/productDisplay/productDisplay.vue */ 292));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+var api = __webpack_require__(/*! ../../config/api.js */ 18);var productDisplay = function productDisplay() {__webpack_require__.e(/*! require.ensure | components/productDisplay/productDisplay */ "components/productDisplay/productDisplay").then((function () {return resolve(__webpack_require__(/*! ../../components/productDisplay/productDisplay.vue */ 300));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 
 
@@ -235,7 +235,7 @@ var api = __webpack_require__(/*! ../../config/api.js */ 18);var productDisplay 
     },
     getSearchKeyword: function getSearchKeyword() {var _this = this;
       util.request(api.SearchIndex).then(function (res) {
-        if (res.errno === 0) {
+        if (res.code === 0) {
           _this.historyKeyword = res.data.historyKeywordList;
           //万万没想到，后台返回的defaultKeyword是空对象
           _this.defaultKeyword = res.data.defaultKeyword || {};
@@ -262,7 +262,7 @@ var api = __webpack_require__(/*! ../../config/api.js */ 18);var productDisplay 
       util.request(api.SearchHelper, {
         keyword: this.keyword }).
       then(function (res) {
-        if (res.errno === 0) {
+        if (res.code === 0) {
           _this2.helpKeyword = res.data;
         }
       });
@@ -286,7 +286,7 @@ var api = __webpack_require__(/*! ../../config/api.js */ 18);var productDisplay 
         categoryId: this.categoryId };
 
       util.request(api.GoodsList, parameters).then(function (res) {
-        if (res.errno === 0) {
+        if (res.code === 0) {
           // console.log('获取商品信息', res);
           _this3.searchStatus = true;
           _this3.categoryFilter = false;

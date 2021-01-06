@@ -179,7 +179,7 @@ var app = getApp();var _default =
         merchantId: merchantId,
         goodsTotalPrice: goodsTotalPrice }).
       then(function (res) {
-        if (res.errno === 0) {
+        if (res.code === 0) {
           _this.couponList = res.data;
         }
       });

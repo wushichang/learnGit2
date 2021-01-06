@@ -130,7 +130,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var topContent = function topContent() {__webpack_require__.e(/*! require.ensure | components/topicContent/topicContent */ "components/topicContent/topicContent").then((function () {return resolve(__webpack_require__(/*! ../../components/topicContent/topicContent.vue */ 299));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var topicNav = function topicNav() {__webpack_require__.e(/*! require.ensure | components/topicNav/topicNav */ "components/topicNav/topicNav").then((function () {return resolve(__webpack_require__(/*! ../../components/topicNav/topicNav.vue */ 306));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var topContent = function topContent() {__webpack_require__.e(/*! require.ensure | components/topicContent/topicContent */ "components/topicContent/topicContent").then((function () {return resolve(__webpack_require__(/*! ../../components/topicContent/topicContent.vue */ 307));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var topicNav = function topicNav() {__webpack_require__.e(/*! require.ensure | components/topicNav/topicNav */ "components/topicNav/topicNav").then((function () {return resolve(__webpack_require__(/*! ../../components/topicNav/topicNav.vue */ 314));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
 
 
 
@@ -176,7 +176,7 @@ var api = __webpack_require__(/*! ../../config/api.js */ 18);var _default =
         page: this.page,
         size: this.size }).
       then(function (res) {
-        if (res.errno === 0) {
+        if (res.code === 0) {
           _this.scrollTop = 0;
           _this.topicList = res.data.data;
           _this.showPage = true;

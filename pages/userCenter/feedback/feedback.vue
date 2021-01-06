@@ -77,7 +77,7 @@
 			    });
 			
 			    util.request(api.FeedbackAdd, { mobile: this.mobile, index: this.index, content: this.content},'POST').then((res)=> {
-			      if (res.errno === 0) {
+			      if (res.code === 0) {
 			        console.log(res.data);
 			      
 			        uni.hideLoading();
